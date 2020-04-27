@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src="./resource/js/jquery-3.4.1.slim.min.js"></script>
+	<script type="text/javascript" src="./resource/js/app.js"></script>
+	<link rel="stylesheet" type="text/css" href="./resource/css/style.css">
+
+	<!--java script-->
+	<!-- <script type="text/javascript" src="SinglePageNavigation.js"></script> -->
+	<script type="text/javascript" src="./resource/js/.js"></script>
+	<script type="text/javascript" src="./resource/js/RegisterBtn.js"></script>
+	<script type="text/javascript" src="./resource/js/LoginBtn.js"></script>
+	<script type="text/javascript" src="./resource/js/NavWelcomPage.js"></script>
+	<script type="text/javascript" src="./resource/js/NavRegisterPage.js"></script>
+	<script type="text/javascript" src="./resource/js/NavLoginPage.js"></script>
+
+	<!--jQuery modal-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+	<!-- valid form -->
+	<script src="https://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+
+
+	<!-- Register Form Start -->
+
+	<!-- Font Icon -->
+	<link rel="stylesheet" href="./resource/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+	<!--  css -->
+	<link rel="stylesheet" href="./resource/css/styleForm.css">
+	<!-- <link rel="stylesheet" href="./resource/css/style.css.map"> -->
+
+	<!-- Register Form End -->
+
+
+	<!-- date picker -->
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+	<link href="./resource/css/jquery.datepicker2.css" rel="stylesheet">
+
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+		integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+		crossorigin="anonymous"></script>
+	<script src="./resource/js/jquery.datepicker2.js"></script>
+
+
+
+</head>
+
+<body>
+
+
+	<!-- Main Window div-->
+	<div class="mainWindow" id="mainWindow">
+
+		<!-- logo div-->
+		<div class="logo" id="logo">
+			<!-- <img class="header" src="./resource/img/pacman-logo-png-2-transparent.png" alt="pacslogo"> -->
+			<img class="header" src="./resource/css/img/pacman-logo-png-2-transparent.png" alt="pacslogo">
+		</div>
+
+		<!-- nav div-->
+		<div class="nav" id="nav">
+
+			<button class="mainBtn" id="welcomPage">Welcome</button>
+			<button class="mainBtn" id="registerPage">Register</button>
+			<button class="mainBtn" id="loginPage">Login</button>
+
+
+			<!-- About div-->
+			<div class="btn_text">
+				<a href="#AboutBtn" rel="modal:open" class="mainBtn_a">About</a>
+				<div id="AboutBtn" class="modal">
+					<p>created by:<br> <strong>Oscar</strong> and <strong>Doron</strong><br>
+
+						Plugins used: <br>
+						• jQuery validation: <a
+							href=http://www.jquerybyexample.net/2012/06/jquery-string-functions.html>jQuery
+							Validtion</a><br>
+						• Pop up modal: <a href="http://jquerytools.org">jQuery tools</a><br><br>
+						Contact:<br>
+					</p>
+					<a href="#" style="margin-top: 5rem;" class="closeBtn" rel="modal:close">Close</a>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Welcome Page div-->
+		<div class="WelcomePage" id="welcome">
+			<p class="headline">𝖂𝖊𝖑𝖈𝖔𝖒𝖊 𝖙𝖔 𝖔𝖚𝖗 𝖜𝖊𝖇𝖘𝖎𝖙𝖊.</p>
+			<p class="headline"> 𝕹𝖔𝖙 𝖗𝖊𝖌𝖎𝖘𝖙𝖊𝖗𝖊𝖉 𝖞𝖊𝖙? 𝖈𝖑𝖎𝖈𝖐 𝖍𝖊𝖗𝖊.</p>
+			<button class="ConnectBtn" id="RegisterBtn">Register</button>
+			<p class="headline">𝕽𝖊𝖌𝖎𝖘𝖙𝖊𝖗𝖊𝖉? 𝕷𝖔𝖌 𝖎𝖓 𝖙𝖔 𝖞𝖔𝖚𝖗 𝖆𝖈𝖈𝖔𝖚𝖓𝖙 𝖍𝖊𝖗𝖊.</p>
+			<button class="ConnectBtn" id="LoginBtn">Login</button>
+		</div>
+
+
+
+		<!-- Register Page div-->
+		<div class="RegisterPage" id="register">
+			<div class="FormWindow" id="registerFormWindow">
+				<div class="registerFormContent" id="registerFormContent">
+					<div class="registerForm" id="registerForm">
+						<form class="formRegister" id="formRegister">
+							<!-- <div class="form-group">
+								<label for="firstname">Firstname</label>
+								<input id="firstname" name="firstname" type="text">
+							</div>
+
+							<div class="form-group">
+								<label for="lastname">Lastname</label>
+								<input id="lastname" name="lastname" type="text">
+							</div> -->
+							<div class="form-group">
+								<label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+								<input type="text" name="name" id="name" placeholder="Your Name" />
+							</div>
+
+							<!-- <div class="form-group">
+								<label for="username">Username</label>
+								<input id="username" name="username" type="text">
+							</div> -->
+
+							<div class="form-group">
+								<label for="username"><i class="zmdi zmdi-account material-icon"></i></label>
+								<input type="text" name="username" id="username" placeholder="Choose User Name">
+							</div>
+
+							<!-- <div class="form-group">
+								<label for="password">Password</label>
+								<input id="password" name="password" type="password">
+							</div> -->
+
+							<div class="form-group">
+								<label for="pass"><i class="zmdi zmdi-lock"></i></label>
+								<input type="password" name="pass" id="pass" placeholder="Password" />
+							</div>
+							<!-- <div class="form-group">
+								<label for="email">Email</label>
+								<input id="email" name="email" type="email">
+							</div> -->
+
+							<div class="form-group">
+								<label for="email"><i class="zmdi zmdi-email"></i></label>
+								<input type="email" name="email" id="email" placeholder="Your Email" />
+							</div>
+
+							<!-- <div class="container">
+								<div class="form-group">
+									<label for="birthdayDate">birthday Date</label>
+									<input type="text" class="form-control" name="date" id="date"
+										data-select="datepicker">
+								</div>
+							</div> -->
+
+							<div class="container">
+								<div class="form-group">
+									<label for="birthdayDate"><i
+											class="zmdi zmdi-account material-design-iconic-font"></i></label>
+									<input type="text" class="form-control" name="date" id="date"
+										placeholder="Your Birthday Date" data-select="datepicker">
+								</div>
+							</div>
+
+							<!-- <div class="form-group">
+								<input class="submit" type="submit" value="Submit">
+							</div> -->
+							<div class="form-group form-button">
+								<input type="submit" name="signup" id="signup" class="form-submit" value="Register" />
+							</div>
+						</form>
+					</div>
+
+					<div class="signup-image">
+						<h2 class="form-title">Sign up</h2>
+						<!-- <figure><img src="resource/css/img/pngfuel.png" alt="sing up image"></figure> -->
+						<figure><img src="resource/css/img/r1.jpg" alt="sing up image"></figure>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+		<!-- Login Page div-->
+		<div class="LoginPage" id="login">
+			<div class="FormWindow" id="loginFormWindow">
+				<div class="loginFormContent" id="loginFormContent">
+					<div class="loginForm" id="loginForm">
+
+						<form class="formLogin" id="formLogin">
+
+							<div class="form-group">
+								<label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+								<input type="text" name="your_name" id="your_name" placeholder="User Name">
+							</div>
+
+							<div class="form-group">
+								<label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+								<input type="password" name="your_pass" id="your_pass" placeholder="Password" />
+							</div>
+
+							<div class="form-group form-button">
+								<input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
+							</div>
+						</form>
+
+					</div>
+
+					<div class="signup-image" id="signup-image">
+						<h2 class="form-title">Sign in</h2>
+						<figure>
+							<img src="resource/css/img/20.png" alt="sing up image" height="20%" width="20%">
+							<img src="resource/css/img/21.png" alt="sing up image" height="20%" width="20%">
+							<img src="resource/css/img/22.png" alt="sing up image" height="20%" width="20%">
+							<img src="resource/css/img/23.png" alt="sing up image" height="20%" width="20%">
+						</figure>						
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<!-- Setting Page div-->
+		<div class="SettingPage" id="settings">
+
+		</div>
+
+		<div id="GamePage">
+			<div id="score">
+				<label class="score" for="lblScore">SCORE:</label>
+				<input class="score" id="lblScore" type="text" />
+				<label class="time" for="lblTime">TIME:</label>
+				<input class="time" id="lblTime" type="text" />
+			</div>
+			<div class="time" id="time">
+				<!-- <label for="lblTime">TIME:</label>
+				<input id="lblTime" type="text" /> -->
+			</div>
+
+			<div id="game">
+				<canvas id="canvas" height="600" width="600"></canvas>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer Page div -->
+	<div class="FooterPage" id="footer">
+		<p class="footerText" id="footerText">This pacman created by <br> Oscar & Doron </p>
+	</div>
+
+</body>
+
+
+
+</html>
