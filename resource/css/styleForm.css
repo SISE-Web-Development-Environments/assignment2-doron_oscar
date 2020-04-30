@@ -369,7 +369,7 @@ display-flex, .display-flex, .display-flex-center, .registerFormContent, .loginF
       input:focus:-moz-placeholder {
         color: #222; }
   
-  input[type=checkbox]:not(old) {
+  /* input[type=checkbox]:not(old) {
     width: 2em;
     margin: 0;
     padding: 0;
@@ -420,7 +420,7 @@ display-flex, .display-flex, .display-flex-center, .registerFormContent, .loginF
   
   .agree-term {
     display: inline-block;
-    width: auto; }
+    width: auto; } */
   
   label {
     position: absolute;
@@ -463,14 +463,14 @@ display-flex, .display-flex, .display-flex-center, .registerFormContent, .loginF
       font-size: 16px;
       color: green; }
   
-  .label-agree-term {
+  /* .label-agree-term {
     position: relative;
     top: 0%;
     transform: translateY(0);
     -moz-transform: translateY(0);
     -webkit-transform: translateY(0);
     -o-transform: translateY(0);
-    -ms-transform: translateY(0); }
+    -ms-transform: translateY(0); } */
   
   .material-icons-name {
     font-size: 18px; }

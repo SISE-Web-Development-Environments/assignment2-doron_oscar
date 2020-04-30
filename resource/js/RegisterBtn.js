@@ -6,7 +6,7 @@ $(document).ready(function(){
 	$('#welcome').show()
 	$('#footer').show()
 
-$('#registerPage').click(function(){
+$('#RegisterBtn').click(function(){
 	$('#mainWindow').children().hide()
 	$('#nav').show()
 	$('#logo').show()
