@@ -24,7 +24,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
 	<!-- valid form -->
-	<script src="https://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+	<!-- <script src="https://jqueryvalidation.org/files/dist/jquery.validate.js"></script> -->
 
 
 	<!-- Register Form Start -->
@@ -63,7 +63,6 @@
 
 		<!-- logo div-->
 		<div class="logo" id="logo">
-			<!-- <img class="header" src="./resource/img/pacman-logo-png-2-transparent.png" alt="pacslogo"> -->
 			<img class="header" src="./resource/css/img/pacman-logo-png-2-transparent.png" alt="pacslogo">
 		</div>
 
@@ -96,18 +95,22 @@
 
 		<!-- Welcome Page div-->
 		<div class="WelcomePage" id="welcome">
+
 			<p class="headline">𝖂𝖊𝖑𝖈𝖔𝖒𝖊 𝖙𝖔 𝖔𝖚𝖗 𝖜𝖊𝖇𝖘𝖎𝖙𝖊.</p>
 			<p class="headline"> 𝕹𝖔𝖙 𝖗𝖊𝖌𝖎𝖘𝖙𝖊𝖗𝖊𝖉 𝖞𝖊𝖙? 𝖈𝖑𝖎𝖈𝖐 𝖍𝖊𝖗𝖊.</p>
 			<button class="ConnectBtn" id="RegisterBtn">Register</button>
 			<p class="headline">𝕽𝖊𝖌𝖎𝖘𝖙𝖊𝖗𝖊𝖉? 𝕷𝖔𝖌 𝖎𝖓 𝖙𝖔 𝖞𝖔𝖚𝖗 𝖆𝖈𝖈𝖔𝖚𝖓𝖙 𝖍𝖊𝖗𝖊.</p>
 			<button class="ConnectBtn" id="LoginBtn">Login</button>
+		
 		</div>
 
 
 
 		<!-- Register Page div-->
 		<div class="RegisterPage" id="register">
+
 			<div class="FormWindow" id="registerFormWindow">
+				
 				<div class="registerFormContent" id="registerFormContent">
 					<div class="registerForm" id="registerForm">
 						<form class="formRegister" id="formRegister">
@@ -239,20 +242,22 @@
 		</div>
 
 		<div id="GamePage">
+
+
 			<div id="score">
 				<label class="score" for="lblScore">SCORE:</label>
 				<input class="score" id="lblScore" type="text" />
-				<label class="time" for="lblTime">TIME:</label>
-				<input class="time" id="lblTime" type="text" />
 			</div>
 			<div class="time" id="time">
-				<!-- <label for="lblTime">TIME:</label>
-				<input id="lblTime" type="text" /> -->
+				<label for="lblTime">TIME:</label>
+				<input id="lblTime" type="text" />
 			</div>
 
 			<div id="game">
 				<canvas id="canvas" height="600" width="600"></canvas>
 			</div>
+
+
 		</div>
 	</div>
 

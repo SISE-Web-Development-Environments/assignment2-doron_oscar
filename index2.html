@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+     <!-- Game javascript -->
+
+    <script type="text/javascript" src="./resource/js/jquery-3.4.1.slim.min.js"></script>
+    <script type="text/javascript" src="./resource/js/app.js"></script>
+
+
+    <!-- date picker -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link href="./resource/css/jquery.datepicker2.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+        crossorigin="anonymous"></script>
+    <script src="./resource/js/jquery.datepicker2.js"></script>
+
+
+    <!-- validate register form -->
+
+    <script src="jquery-validation-1.19.1/lib/jquery.js"></script>
+    <script src="jquery-validation-1.19.1/dist/jquery.validate.js"></script>
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="./resource/css/style.css">
+    
+    <!-- javascript -->
+    <script type="text/javascript" src="./resource/js/welcomePage.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+    
+	<!-- Main Window div-->
+	<div class="mainWindow" id="mainWindow">
+
+    <!-- logo div-->
+		<div class="logo" id="logo">
+			<img src="./resource/css/img/logo.png" alt="pacslogo">
+		</div>
+
+		<!-- nav div-->
+		<div class="nav" id="nav">
+
+			<button class="mainBtn" id="welcomPage">Welcome</button>
+			<button class="mainBtn" id="registerPage">Register</button>
+			<button class="mainBtn" id="loginPage">Login</button>
+
+
+			<!-- About div-->
+			<div class="btn_text">
+				<a href="#AboutBtn" rel="modal:open" class="mainBtn_a">About</a>
+				<div id="AboutBtn" class="modal">
+					<p>created by:<br> <strong>Oscar</strong> and <strong>Doron</strong><br>
+
+						Plugins used: <br>
+						• jQuery validation: <a
+							href=http://www.jquerybyexample.net/2012/06/jquery-string-functions.html>jQuery
+							Validtion</a><br>
+						• Pop up modal: <a href="http://jquerytools.org">jQuery tools</a><br><br>
+						Contact:<br>
+					</p>
+					<a href="#" style="margin-top: 5rem;" class="closeBtn" rel="modal:close">Close</a>
+				</div>
+			</div>
+
+		</div>
+
+    <!-- Welcome Page div-->
+		<div class="WelcomePage" id="welcome">
+
+			<p> </p>
+            <p> </p>
+            
+            <button class="ConnectBtn" id="RegisterBtn">Register</button>
+            
+            <p> </p>
+            
+			<button class="ConnectBtn" id="LoginBtn">Login</button>
+		
+		</div>
+
+    <!-- Register Page -->
+    <div class="registerPage" id=register>
+
+        <form class="cmxform" id="signupForm" method="get" action="">
+            <fieldset>
+                <p>
+                    <label for="firstname">Firstname</label>
+                    <input id="firstname" name="firstname" type="text">
+                </p>
+                <p>
+                    <label for="lastname">Lastname</label>
+                    <input id="lastname" name="lastname" type="text">
+                </p>
+                <p>
+                    <label for="username">Username</label>
+                    <input id="username" name="username" type="text">
+                </p>
+                <p>
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password">
+                </p>
+                <p>
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email">
+                </p>
+                <p>
+                    <label for="date">Birthday Date</label>
+                    <input type="text" class="form-control" name="date" id="date" placeholder="Your Birthday Date"
+                        data-select="datepicker">
+                </p>
+                <p>
+                    <input class="submit" type="submit" value="Submit">
+                </p>
+                <script type="text/javascript" src="./resource/js/registerPage.js"></script>
+
+            </fieldset>
+        </form>
+
+    </div>
+
+
+    <!-- Login Page -->
+
+    <div class="loginPage" id="login">
+        <form class="cmxform" id="loginForm" method="get" action="">
+            <fieldset>
+                <p>
+                    <label for="username_login">Username</label>
+                    <input id="username_login" name="username_login" type="text">
+                </p>
+                <p>
+                    <label for="password_login">Password</label>
+                    <input id="password_login" name="password_login" type="password">
+                </p>
+                <p>
+                    <input class="submit" type="submit" value="Login">
+                </p>
+                <script type="text/javascript" src="./resource/js/registerPage.js"></script>
+
+            </fieldset>
+        </form>
+        <script type="text/javascript" src="./resource/js/loginPage.js"></script>
+    </div>
+
+    <!-- Setting Page div-->
+    <div class="SettingPage" id="settings">
+
+    </div>
+
+    <!-- Game Page div-->
+    <div class="gamePage">
+        <div id="score">
+            <label for="lblScore">SCORE:</label>
+            <input id="lblScore" type="text" />
+        </div>
+        <div id="time">
+            <label for="lblTime">TIME:</label>
+            <input id="lblTime" type="text" />
+        </div>
+        <div id="game">
+            <canvas id="canvas" height="600" width="600"></canvas>
+        </div>
+    </div>
+
+
+	</div>
+
+    <!-- Footer Page div -->
+    <div class="FooterPage" id="footer">
+        <p>This pacman created by Oscar & Doron </p>
+    </div>
+
+</body>
+
+</html>

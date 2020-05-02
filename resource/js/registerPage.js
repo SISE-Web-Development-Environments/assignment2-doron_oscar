@@ -1,62 +1,47 @@
 
 
-// // user fields
-// var user = {
-//     name: "",
-//     username: "",
-//     password: "",
-//     email: "",
-//     birth: ""
-//   };
+/**
+ * only for Registration page
+ */
+$.validator.setDefaults({
+    submitHandler: function() {
+        /**
+         * what the sumbit button will do
+         */
+        let username = $('#signupForm').find('input[name="username"]').val();
+        let password = $('#signupForm').find('input[name="password"]').val();
+        localStorage.setItem(username, password);
+        //go to home page!
+        return true;
+    }
+});
 
-// // users storage
-//   var users = [];
-
-// // default user
-//   var defaultUser = { name: "p", username: "p", password: "p", email: "p@gmail.com", birth: "16-03-1994" };
-
-// // insert default user to the storage
-//   users.push(defaultUser);
-
-
-$(function() {
-    jQuery.validator.addMethod("checkValidName", function (value, element) {
-        return this.optional(element) || /^[^0-9]+$/i.test(value);
-      },"The name can only contain letters"),
+/*check valid name*/
+$.validator.addMethod("checkValidName", function (value, element) {
+    return /^[^0-9]+$/.test(value);
+    }),
     
-        /*check valid password*/
-    jQuery.validator.addMethod("checkValidPassword", function (value, element) {
-        return this.optional(element) || /^(?=.*[a-zA-Z\d].*)[a-zA-Z\d\*]{6,}$/i.test(value);
-      }, "The password must contain only numbers and letters");
+/*check valid password*/
+$.validator.addMethod("checkValidPassword", function (value, element) {
+    return /^(?=.*[a-zA-Z\d].*)[a-zA-Z\d\*]{6,}$/.test(value);
+    });
     
-    /*check valid date*/
-    jQuery.validator.addMethod("checkValidDate", function (value, element) {
-        return this.optional(element) || Date.now() - new Date(value).getTime() > 0;
-      },"This date is in the future, please enter a valid date");
-
-//     jQuery.validator.addMethod("lettersonly", function(value, element) {
-//         return this.optional(element) || /^[a-z ]+$/i.test(value);
-// },      "Please use only letters");
+/*check valid date*/
+$.validator.addMethod("checkValidDate", function (value, element) {
+    return Date.now() - new Date(value).getTime() > 0;
+    });
 
 
-// jQuery.validator.addMethod("lettersNumbers", function(value, element) {
-//     return this.optional(element) || /^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/i.test(value);
-// },      "The password must contain number and letters");
-
-//  $.validator.setDefaults({
-//      submitHandler: function () {
-//          alert("submitted!");
-//     }
-//  });
-
-//$(document).ready(function () {
-    // validate the comment form when it is submitted
-    // $("#commentForm").validate();
 
     // validate signup form on keyup and submit
-    $('#formRegister').validate({
+    $('#signupForm').validate({
+        errorElement: 'div',
         rules: {
-            name:{
+            firstname:{
+                required: true,
+                checkValidName: true
+            },
+            lastname:{
                 required: true,
                 checkValidName: true
             },
@@ -75,13 +60,18 @@ $(function() {
             },
             date: {
                 required: true,
+                checkValidDate: true
             }
         },
         messages: {
-           name: {
-               required: "Please enter your full name",
+           firstname: {
+               required: "Please enter your first name name",
                checkValidName: "The name can only contain letters"
             },
+            lastname: {
+                required: "Please enter your last name name",
+                checkValidName: "The name can only contain letters"
+             },
             username: {
                 required: "Please enter a username",
                 minlength: "Your username must consist of at least 2 characters"
@@ -100,100 +90,4 @@ $(function() {
             },
         }
     });
-}
-)
-
-// user fields
-var user = {
-    name: "",
-    username: "",
-    password: "",
-    email: "",
-    birth: ""
-  };
-
-        //submitHandler: function (form, event) {
-        $(document).ready(function(form, event){
-
-        $('#formRegister').submit(function(){
-            
-        if ($(this).valid() !== true) {
-        }
-        else{
-
-        var newUser = Object.create(user);
-
-        newUser.name = $("#name").val();
-        newUser.username = $("#username").val();
-        newUser.password = $("#password").val();
-        newUser.email = $("#email").val();
-        newUser.date = $("#date").val();
-
-        users.push(newUser);
-
-        alert("The " + newUser.username + " created!");
-
-        console.log(newUser);
-        console.log(users);
-        localStorage.setItem('users',JSON.stringify(users))
-
-        $('#mainWindow').children().hide()
-        $('#nav').show()
-        $('#logo').show()
-        $('#login').show();
-        $('#footer').show()
-    }
-    return false;
-        
-      
-
-        //document.getElementById("formRegister").reset();
-               // }
-   // return false;
-       // login();//?
-      
-    });
-});
-
-
-
-    // propose username by combining first- and lastname
-    // $("#username").focus(function () {
-    //     var firstname = $("#firstname").val();
-    //     var lastname = $("#lastname").val();
-    //     if (firstname && lastname && !this.value) {
-    //         this.value = firstname + "." + lastname;
-    //     }
-    // });
-
-/*check valid name */
-// jQuery.validator.addMethod("checkValidName", function (value, element) {
-//     return /^[^0-9]+$/.test(value);
-//   }),
-
-//     /*check valid password*/
-// jQuery.validator.addMethod("checkValidPassword", function (value, element) {
-//     return /^(?=.*[a-zA-Z\d].*)[a-zA-Z\d\*]{6,}$/.test(value);
-//   });
-
-// /*check valid date*/
-// jQuery.validator.addMethod("checkValidDate", function (value, element) {
-//     return Date.now() - new Date(value).getTime() > 0;
-//   });
-
-    //code to hide topic selection, disable for demo
-    // var newsletter = $("#newsletter");
-    // newsletter topics are optional, hide at first
-    // var inital = newsletter.is(":checked");
-    // var topics = $("#newsletter_topics")[inital ? "removeClass" : "addClass"]("gray");
-    // var topicInputs = topics.find("input").attr("disabled", !inital);
-    // show when newsletter is checked
-    // newsletter.click(function() {
-    // 	topics[this.checked ? "removeClass" : "addClass"]("gray");
-    // 	topicInputs.attr("disabled", !this.checked);
-    // });
-
-
-   
-
 
