@@ -25,11 +25,11 @@ $("#loginForm").validate({
     submitHandler: function (form) {
       let username = $('#loginForm').find('input[name="username_login"]').val();
       let password = $('#loginForm').find('input[name="password_login"]').val();
-      let insert_password = localStorage.getItem(username);
+      let storage_password = localStorage.getItem(username);
      
       console.log(username);
       console.log(password);
-      console.log(insert_password);
+      console.log(storage_password);
 
       if (username == 'p' && password == 'p') {
 
@@ -55,7 +55,7 @@ $("#loginForm").validate({
   
   
       }
-      else if (password === insert_password) {
+      else if (password === storage_password) {
         //go to settings
 
         $('#mainWindow').children().hide()
@@ -75,8 +75,13 @@ $("#loginForm").validate({
         // $("#random_settings").show();
         // $("#save_settings").show();
       }
+      else if(storage_password === null){
+        alert("Wrong Username");
+        return false;
+      }
       else {
-        alert("Wrong Password or Username");
+        //alert("Wrong Password or Username");
+        alert("Wrong Password");
         return false;
       }
   
