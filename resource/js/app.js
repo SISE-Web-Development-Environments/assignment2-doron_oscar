@@ -7,6 +7,13 @@ var start_time;
 var time_elapsed;
 var interval;
 
+//settings
+var gameMoveKeys =[];
+var ballsNumber;
+var ballsColor = ["#55aecc" , "#d275d5", "#43e45b"];
+var gameTimer;
+var monstersNumber;
+
 window.addEventListener("keydown", function(e) {
 	if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
 		e.preventDefault();

@@ -6,7 +6,7 @@ body{
 
 .mainWindow{
     text-align: center;
-    background-image: url("img/background.jpg");
+    /* background-image: url("img/background.jpg"); */
     /* background-image: url("./resource/img/background.jpg"); */
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -171,6 +171,8 @@ section
    
 }
 
+
+
 div#score{
     text-align: left;
 }
@@ -225,7 +227,7 @@ label{
         background:  linear-gradient(
             rgba(0, 0, 0, 0.4), 
             rgba(0, 0, 0, 0.4)
-          ), url("./assets/img/Backround.jpg");
+          );
         background-attachment: fixed;
         background-repeat: no-repeat;
         -webkit-background-size: cover;

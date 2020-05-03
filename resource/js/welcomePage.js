@@ -39,5 +39,17 @@ $(document).ready(function(){
         $('#footer').show()
       });
 
-})
+});
+
+
+var users=  JSON.parse(localStorage.getItem('users'));
+
+if(!users){
+
+  users=[];
+
+  var defaultUser = { firstname: "p", lastName: "p", username: "p", password: "p", email: "p@example.com", birth: "1/1/1990" };
+  users.push(defaultUser);
+}
+
 

@@ -1,19 +1,58 @@
 
+ var user = {
+    'firstname': '',
+    'lastname': '',
+    'username': '',
+    'password': '',
+    'email': '',
+    'date': ''
+  }
 
 /**
  * only for Registration page
  */
-$.validator.setDefaults({
-    submitHandler: function() {
+$(document).ready(function(e){
+    $('#signupForm').submit(function(){
         /**
          * what the sumbit button will do
          */
-        let username = $('#signupForm').find('input[name="username"]').val();
-        let password = $('#signupForm').find('input[name="password"]').val();
-        localStorage.setItem(username, password);
+       
+
+        user['firstname'] =  $("#firstname").val();
+        user['lastname'] =  $("#lastname").val();
+        user['username'] =  $("#username").val();
+        user['password'] =  $("#password").val();
+        user['email'] =  $("#email").val();
+        user['birth'] =  $("#birth").val();
+
+
+
+        // user.firstname =  $("#firstname").val();
+        // user.lastname =  $("#lastname").val();
+        // user.username =  $("#username").val();
+        // user.password =  $("#password").val();
+        // user.email =  $("#email").val();
+        // user.birth =  $("#birth").val();
+
+        users.push(user);
+        localStorage.setItem('users',JSON.stringify(users))
+
+
+        $('#mainWindow').children().hide()
+        $('#logo').show()
+        $('#nav').show()
+        $('#welcome').show()
+        $('#footer').show()
+    
+
+        //let username = $('#signupForm').find('input[name="username"]').val();
+        //let password = $('#signupForm').find('input[name="password"]').val();
+        //localStorage.setItem(username, password);
         //go to home page!
-        return true;
-    }
+        return false;
+    
+
+});
 });
 
 /*check valid name*/
