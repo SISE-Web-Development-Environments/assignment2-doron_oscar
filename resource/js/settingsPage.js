@@ -199,11 +199,15 @@ function getRandomColor() {
 
   function startGame(){
 
-    $('#mainWindow').children().hide()
-    $('#logo').show()
-    $('#nav').show()
-    $('.gamePage').show()
-    $('#gameUser').text("Welcome "  + username + " !");
-    $('#footer').show() 
+    Start();
+    // $('#mainWindow').children().hide()
+    // $('#logo').show()
+    // $('#nav').show()
+    // $('#gamePage').show()
+    // $('#gameUser').text("Welcome "  + username + " !");
+    // //$('#settingsBoard').show()
+    // $('#footer').show() 
 
   }
+
+  

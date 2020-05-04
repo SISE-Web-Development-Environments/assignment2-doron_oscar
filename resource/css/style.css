@@ -171,7 +171,14 @@ section
    
 }
 
+#settingsBoard{
+    margin: 0 2% ;
+    /* background: rgba(22, 18, 31, 0.52); */
+    float:right;
+    width: 25%;
+    border: #000000;
 
+}
 
 div#score{
     text-align: left;

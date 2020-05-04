@@ -27,10 +27,10 @@
     <script src="jquery-validation-1.19.1/dist/jquery.validate.js"></script>
 
     <!--jQuery modal-->
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-    
+
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="./resource/css/style.css">
 
@@ -232,23 +232,92 @@
         </div>
 
         <!-- Game Page div-->
-        <div class="gamePage">
-            <label id="gameUser"></label>
-            <div id="score">
-                <label for="lblScore">SCORE:</label>
-                <input id="lblScore" type="text" />
+        <div class="gamePage" id="gamePage">
+
+            <div id="settingsBoard">
+                <label id="gameUser"></label>
+                <div id="score">
+                    <label for="lblScore">SCORE:</label>
+                    <input id="lblScore" type="text" />
+                </div>
+                <div id="time">
+                    <label for="lblTime">TIME:</label>
+                    <input id="lblTime" type="text" />
+                </div>
+
+                <p>
+                    <label for="up_settingsBoard">Up key:</label>
+                    <input type="text" id="up_settingsBoard" name="up_settingsBoard">
+                </p>
+                <p>
+                    <label for="down_settingsBoard">Down key:</label>
+                    <input type="text" id="down_settingsBoard" name="down_settingsBoard">
+                </p>
+                <p>
+                    <label for="right_settingsBoard">Right key:</label>
+                    <input type="text" id="right_settingsBoard" name="right_settingsBoard">
+                </p>
+                <p>
+                    <label for="left_settingsBoard">Left key:</label>
+                    <input type="text" id="left_settingsBoard" name="left_settingsBoard">
+                </p>
+                <p>
+                    <label for="ballsNumber_settingsBoard">Number of balls:</label>
+                    <input type="number" id="ballsNumber_settingsBoard" name="ballsNumber_settingsBoard" min=50 max=90
+                        value="50">
+                </p>
+                <p>
+                    <label for="Ball_5Point_settingsBoard">5 points ball remain:</label>
+                    <input type="color" id="Ball_5Point_settingsBoard" name="Ball_5Point_settingsBoard" value="#55aecc">
+                </p>
+                <p>
+                    <label for="Ball_15Point_settingsBoard">15 points ball remain:</label>
+                    <input type="color" id="Ball_15Point_settingsBoard" name="Ball_15Point_settingsBoard"
+                        value="#d275d5">
+                </p>
+                <p>
+                    <label for="Ball_25Point_settingsBoard">25 points ball remain:</label>
+                    <input type="color" id="Ball_25Point_settingsBoard" name="Ball_25Point_settingsBoard"
+                        value="#43e45b">
+                </p>
+                <p>
+                    <label>time for the game (measured in seconds):</label>
+                    <input type="number" id="gameTimer_settingsBoard" name="gameTimer_settingsBoard" min="60"
+                        value="60">
+                </p>
+                <p>
+                    <label>Number of monsters:</label>
+                    <input type="number" id="monstersNumber_settingsBoard" name="monstersNumber_settingsBoard" min="1"
+                        max="4" value="1"><br>
+                </p>
             </div>
-            <div id="time">
-                <label for="lblTime">TIME:</label>
-                <input id="lblTime" type="text" />
+
+            <div id="gameAudio">
+                <audio loop id="pacmanSong">
+                    <source src="./resource/audio/PacMan.mp3"  type="audio/mp3">Your browser does not support the audio tag.
+                </audio>
+                <!-- <audio  id="errorsong">
+                    <source src="./assets/sound/error.mp3" type="audio/mp3">
+                    Your browser does not support the audio tag.
+                </audio>
+                <audio  id="points">
+                    <source src="./assets/sound/points.mp3" type="audio/mp3">
+                    Your browser does not support the audio tag.
+                </audio> -->
             </div>
+
             <div id="game">
                 <canvas id="canvas" height="600" width="600"></canvas>
             </div>
         </div>
 
 
+
+
     </div>
+
+
+
 
     <!-- Footer Page div -->
     <div class="FooterPage" id="footer">
