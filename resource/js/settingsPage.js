@@ -207,7 +207,7 @@ function gameControlers(event, id) {
 
      jQuery.validator.addMethod("validRightMove", function(value, element) {
         for (var key in keyCodes) {
-            if(right_code === key){
+            if(right_code == key){
                 return true;
             }
           }
@@ -216,7 +216,7 @@ function gameControlers(event, id) {
 
      jQuery.validator.addMethod("validLeftMove", function(value, element) {
         for (var key in keyCodes) {
-            if(left_code === key){
+            if(left_code == key){
                 return true;
             }
           }
