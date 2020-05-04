@@ -1,21 +1,10 @@
 
 const keyCodes = {
-    0: 'That key has no keycode',
-    3: 'break',
-    8: 'backspace / delete',
-    9: 'tab',
-    12: 'clear',
+   
     13: 'enter',
     16: 'shift',
     17: 'ctrl',
     18: 'alt',
-    19: 'pause/break',
-    20: 'caps lock',
-    21: 'hangul',
-    25: 'hanja',
-    27: 'escape',
-    28: 'conversion',
-    29: 'non-conversion',
     32: 'spacebar',
     33: 'page up',
     34: 'page down',
@@ -31,7 +20,6 @@ const keyCodes = {
     44: 'Print Screen',
     45: 'insert',
     46: 'delete',
-    47: 'help',
     48: '0',
     49: '1',
     50: '2',
@@ -81,7 +69,6 @@ const keyCodes = {
     103: 'numpad 7',
     104: 'numpad 8',
     105: 'numpad 9',
-    106: 'multiply',
     112: 'f1',
     113: 'f2',
     114: 'f3',
@@ -124,12 +111,15 @@ var left_code;
 
 
 
+
 function gameControlers(event, id) {
 
     //var eventKey = event.key;
 	if (id === "up") {
         document.getElementById("up").innerHTML = event.keyCode;
+        //document.getElementById("up").innerText = event.keyCode;
         document.getElementById("up").value = event.key;
+        document.getElementById("up").keyCode = event.keyCode;
         up_code= event.keyCode;
 	}
 	else if (id === "down") {
@@ -183,10 +173,55 @@ function gameControlers(event, id) {
                 value.toString() !== $("#up").val();
     });
 
-    // jQuery.validator.addMethod("goLeft", function(value, element) {
-    
-    //     return  
-    // });
+     jQuery.validator.addMethod("validUpMove", function(value, element) {
+       // let found =false;
+        for (var key in keyCodes) {
+            //var keyValue = obj[key];
+            
+            console.log("up_code");
+            
+            console.log(up_code);
+            console.log("key")
+            console.log(key);
+            console.log("value")
+            console.log(value);
+            if(up_code == key){
+                return true;
+               // found = true;
+                //console.log(found);
+               // break;
+            }
+          }
+          return false;
+         //return found;
+     });
+
+     jQuery.validator.addMethod("validDoenMove", function(value, element) {
+        for (var key in keyCodes) {
+            if(down_code == key){
+                return true;
+            }
+          }
+         return false;
+     });
+
+     jQuery.validator.addMethod("validRightMove", function(value, element) {
+        for (var key in keyCodes) {
+            if(right_code === key){
+                return true;
+            }
+          }
+         return false;
+     });
+
+     jQuery.validator.addMethod("validLeftMove", function(value, element) {
+        for (var key in keyCodes) {
+            if(left_code === key){
+                return true;
+            }
+          }
+         return false;
+     });
 
    
     
@@ -197,19 +232,23 @@ $().ready(function(){
         rules: {
             up:{
                 required: true,
-                goUp: true
+                goUp: true,
+                validUpMove: true
             },
             down:{
                 required: true,
-                goDown: true
+                goDown: true,
+                validDoenMove: true
             },
             right: {
                 required: true,
-                goRight: true
+                goRight: true,
+                validRightMove: true
             },
             left: {
                 required: true,
-                goLeft: true
+                goLeft: true,
+                validLeftMove: true
             },
             Ball_5Point: {
                 // checkColor: true
@@ -224,19 +263,23 @@ $().ready(function(){
         messages: {
            up: {
                required: "Click and Press key for move up",
-               goUp: "This button is already selected for a different direction"
+               goUp: "This button is already selected for a different direction",
+               validUpMove: "You can't choose this button"
             },
             down: {
                 required: "Click and Press key for move down",
-                goDown: "This button is already selected for a different direction"
+                goDown: "This button is already selected for a different direction",
+                validDoenMove: "You can't choose this button"
              },
             right: {
                 required: "Click and Press key for move right",
-                goRight: "This button is already selected for a different direction"
+                goRight: "This button is already selected for a different direction",
+                validRightMove: "You can't choose this button"
             },
             left: {
                 required: "Click and Press key for move left",
-                goLeft: "This button is already selected for a different direction"
+                goLeft: "This button is already selected for a different direction",
+                validLeftMove: "You can't choose this button"
             },
             Ball_5Point: {
                 // checkColor: "For every type of ball choose a diffrent color"
