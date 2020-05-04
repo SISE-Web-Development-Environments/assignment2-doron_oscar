@@ -60,6 +60,9 @@
 		var monstersNumber=1;
 		var pacmanSong;
 
+		function startNewGame(){
+			Start();
+		}
 		
 		function playAudio(){
 			pacmanSong  = document.getElementById("pacmanSong").muted=true;
@@ -287,15 +290,20 @@
                         context.fill();
                     } else if (board[i][j] == PLUS) {
                         context.beginPath();
-                        context.arc(center.x, center.y, 6, 0, 2 * Math.PI); // circle
+						context.arc(center.x, center.y, 6, 0, 2 * Math.PI); // circle
                         context.fillStyle = "pink"; //color
                         context.fill();
                     } else if (board[i][j] == TIME) {
-                        context.beginPath();
-                        context.arc(center.x, center.y, 6, 0, 2 * Math.PI); // circle
-                        context.fillStyle = "black"; //color
-                        context.fill();
-                    }
+						context.beginPath();
+						var img = document.getElementById("monsters");
+						context.drawImage(img, 30, 30);
+                       // context.arc(center.x, center.y, 6, 0, 2 * Math.PI); // circle
+                       // context.fillStyle = "black"; //color
+                       // context.fill();
+					}
+					
+					
+					
                 }
             }
         }
@@ -384,6 +392,11 @@
 			//endGame();
 			
 			//show button
+			$('#mainWindow').children().hide()
+    		$('#logo').show()
+    		$('#nav').show()
+    		//$('#welcome').show()
+    		$('#footer').show()
         }
 
         function endGame() {
