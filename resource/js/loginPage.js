@@ -35,10 +35,13 @@ $("#loginForm").validate({
               if(userFound.password===password)
                     {
                       console.log(username);
+                      $('#username_login').val("");
+                      $('#password_login').val(""); 
                       $('#mainWindow').children().hide();
                       $('#logo').show();
                        $('#nav').show();
                        $('#settings').show();
+                       
                        return false;
                     }   
               else{

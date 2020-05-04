@@ -179,6 +179,19 @@ section
     border: #000000;
 
 }
+#gameUser{
+    font-weight: bold;
+    margin: 2rem;
+    float: left;
+    font-size: 24px;
+}
+
+#game{
+   margin-top:2rem;
+   margin-bottom:2rem;
+   margin-right:2rem;
+   margin-left:2rem;
+}
 
 div#score{
     text-align: left;

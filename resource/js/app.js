@@ -41,7 +41,8 @@
         var set_plus; //init plus food
         var set_time;//init time food
 
-        var lives = 5;
+		var lives = 5;
+		var winGame=false;
 
         var food_remain = 90; // כמות כדורים
 
@@ -60,13 +61,27 @@
 		var monstersNumber=1;
 		var pacmanSong;
 
+		function resetGame(){
+            window.clearInterval(interval);
+            interval_counter = 0;
+            lives=5;
+            food_remain = 90;
+            game_time=10;
+            start_time =  new Date();
+            score = 0;
+            init_start=true;
+            ghosts = new Array();
+            context = canvas.getContext("2d");
+        }
+
 		function startNewGame(){
+            resetGame();
 			Start();
 		}
 		
 		function playAudio(){
 			pacmanSong  = document.getElementById("pacmanSong").muted=true;
-			pacmanSong.play();
+			//pacmanSong.play();
 		}
 
 		function gameBoard(){
@@ -284,20 +299,22 @@
                         context.fillStyle = "grey"; //color
                         context.fill();
                     } else if (board[i][j] == GHOST) {
-                        context.beginPath();
-                        context.arc(center.x, center.y, 13, 0, 2 * Math.PI); // circle
-                        context.fillStyle = "orange"; //color
-                        context.fill();
+                        var img = document.getElementById("monsters");
+						context.drawImage(img,center.x-20, center.y-20, 40,40);
+                        // context.beginPath();
+                        // context.arc(center.x, center.y, 13, 0, 2 * Math.PI); // circle
+                        // context.fillStyle = "orange"; //color
+                        // context.fill();
                     } else if (board[i][j] == PLUS) {
                         context.beginPath();
 						context.arc(center.x, center.y, 6, 0, 2 * Math.PI); // circle
                         context.fillStyle = "pink"; //color
                         context.fill();
                     } else if (board[i][j] == TIME) {
-						context.beginPath();
-						var img = document.getElementById("monsters");
-						context.drawImage(img, 30, 30);
-                       // context.arc(center.x, center.y, 6, 0, 2 * Math.PI); // circle
+						// context.beginPath();
+						// var img = document.getElementById("monsters");
+						// context.drawImage(img,center.x-20, center.y-20, 40,40);
+                    //    context.arc(center.x, center.y, 6, 0, 2 * Math.PI); // circle
                        // context.fillStyle = "black"; //color
                        // context.fill();
 					}
@@ -307,8 +324,6 @@
                 }
             }
         }
-
-
         function UpdatePosition() {
             interval_counter++;
             var x = GetKeyPressed();
@@ -359,7 +374,8 @@
             time_elapsed = (currentTime - start_time) / 1000;
             if (time_elapsed >= game_time) {
                 if (score >= 100) {
-                    pac_color = "green";
+					pac_color = "green";
+					winGame=true;
                 } else {
                     pac_color = "red";
                 }
@@ -384,18 +400,25 @@
             console.log("Caught time " + game_time)
         }
         function gameOver() {
-			pacmanSong.pause();
-            window.alert("you lost");
-            window.clearInterval(interval);
-            interval_counter = 0;
-            ghosts.length = 0 // לבדוק
+			pacmanSong  = document.getElementById("pacmanSong").muted=true;
+			//pacmanSong.pause();
+			//window.alert("you lost");
+			resetGame();
+            //window.clearInterval(interval);
+            //interval_counter = 0;
+            //ghosts.length = 0 // לבדוק
 			//endGame();
 			
 			//show button
 			$('#mainWindow').children().hide()
     		$('#logo').show()
     		$('#nav').show()
-    		//$('#welcome').show()
+			$('#newGame').show()
+			if(winGame){
+				$('#winGame').show()
+			}else{
+				$('#loseGame').show()
+			}
     		$('#footer').show()
         }
 

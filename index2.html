@@ -297,25 +297,39 @@
             </div>
 
             <div id="gameAudio">
-                <audio loop muted id="pacmanSong">
-                    <source src="./resource/audio/PacMan.mp3"  type="audio/mp3">Your browser does not support the audio tag.
+                <audio loop id="pacmanSong">
+                    <source src="./resource/audio/PacMan.mp3" type="audio/mp3">Your browser does not support the audio tag.
                 </audio>
             </div>
 
-            <label id="gameUser"></label>
-            <div id="game">
-               
-                <canvas id="canvas" height="730" width="730"></canvas>
-                <img id="monsters" src="./resource/css/img/20.png">
+            <div>
+                <label id="gameUser" ></label>
             </div>
 
-            <div class="newGame">
-                <p>
-                    <button type="button" onclick="startNewGame()">New Game</button>
-                </p>
+            <div id="game" >
+               
+                <canvas id="canvas" width="600" height="600" ></canvas>
+                <!-- <img id="monsters" src="./resource/css/img/20.png"> -->
             </div>
+
         </div>
 
+        <!-- New Game -->
+        <div id="newGame">
+            <p>
+                <button type="button" onclick="startNewGame()">New Game</button>
+            </p>
+        </div>
+
+        <div>
+            <div id="winGame">
+
+            </div>
+
+            <div id="loseGame">
+                
+            </div>
+        </div>
 
 
 
