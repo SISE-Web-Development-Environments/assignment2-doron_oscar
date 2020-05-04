@@ -62,8 +62,7 @@
 
 		
 		function playAudio(){
-			pacmanSong  = document.getElementById("pacmanSong");
-			pacmanSong.muted = false;
+			pacmanSong  = document.getElementById("pacmanSong").muted=true;
 			pacmanSong.play();
 		}
 
@@ -106,7 +105,8 @@
 
         // intialize the board 
         function Start() {
-            gameBoard();
+			gameBoard();
+			pacmanSong  = document.getElementById("pacmanSong").muted=false;
             board = new Array();
             pac_color = "purple";
             var cnt = 100; // אפשרות להגדיר אחוזים מסויימים
