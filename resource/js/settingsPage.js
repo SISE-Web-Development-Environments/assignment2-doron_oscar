@@ -1,4 +1,121 @@
 
+const keyCodes = {
+    0: 'That key has no keycode',
+    3: 'break',
+    8: 'backspace / delete',
+    9: 'tab',
+    12: 'clear',
+    13: 'enter',
+    16: 'shift',
+    17: 'ctrl',
+    18: 'alt',
+    19: 'pause/break',
+    20: 'caps lock',
+    21: 'hangul',
+    25: 'hanja',
+    27: 'escape',
+    28: 'conversion',
+    29: 'non-conversion',
+    32: 'spacebar',
+    33: 'page up',
+    34: 'page down',
+    35: 'end',
+    36: 'home',
+    37: 'left arrow',
+    38: 'up arrow',
+    39: 'right arrow',
+    40: 'down arrow',
+    41: 'select',
+    42: 'print',
+    43: 'execute',
+    44: 'Print Screen',
+    45: 'insert',
+    46: 'delete',
+    47: 'help',
+    48: '0',
+    49: '1',
+    50: '2',
+    51: '3',
+    52: '4',
+    53: '5',
+    54: '6',
+    55: '7',
+    56: '8',
+    57: '9',
+    58: ':',
+    60: '<',
+    63: 'ß',
+    65: 'a',
+    66: 'b',
+    67: 'c',
+    68: 'd',
+    69: 'e',
+    70: 'f',
+    71: 'g',
+    72: 'h',
+    73: 'i',
+    74: 'j',
+    75: 'k',
+    76: 'l',
+    77: 'm',
+    78: 'n',
+    79: 'o',
+    80: 'p',
+    81: 'q',
+    82: 'r',
+    83: 's',
+    84: 't',
+    85: 'u',
+    86: 'v',
+    87: 'w',
+    88: 'x',
+    89: 'y',
+    90: 'z',
+    96: 'numpad 0',
+    97: 'numpad 1',
+    98: 'numpad 2',
+    99: 'numpad 3',
+    100: 'numpad 4',
+    101: 'numpad 5',
+    102: 'numpad 6',
+    103: 'numpad 7',
+    104: 'numpad 8',
+    105: 'numpad 9',
+    106: 'multiply',
+    112: 'f1',
+    113: 'f2',
+    114: 'f3',
+    115: 'f4',
+    116: 'f5',
+    117: 'f6',
+    118: 'f7',
+    119: 'f8',
+    120: 'f9',
+    121: 'f10',
+    122: 'f11',
+    123: 'f12',
+    124: 'f13',
+    125: 'f14',
+    126: 'f15',
+    127: 'f16',
+    128: 'f17',
+    129: 'f18',
+    130: 'f19',
+    131: 'f20',
+    132: 'f21',
+    133: 'f22',
+    134: 'f23',
+    135: 'f24',
+    136: 'f25',
+    137: 'f26',
+    138: 'f27',
+    139: 'f28',
+    140: 'f29',
+    141: 'f30',
+    142: 'f31',
+    143: 'f32',
+   
+  };
 
 function gameControlers(event, id) {
 
@@ -59,6 +176,11 @@ function gameControlers(event, id) {
                 value.toString() !== $("#right").val() &&
                 value.toString() !== $("#up").val();
     });
+
+    // jQuery.validator.addMethod("goLeft", function(value, element) {
+    
+    //     return  
+    // });
 
    
     
@@ -199,7 +321,7 @@ function getRandomColor() {
 
   function startGame(){
 
-    Start();
+    startNewGame();
     // $('#mainWindow').children().hide()
     // $('#logo').show()
     // $('#nav').show()

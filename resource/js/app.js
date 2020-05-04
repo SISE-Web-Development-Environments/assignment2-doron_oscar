@@ -266,16 +266,16 @@
             for (var i = 0; i < 12; i++) {
                 for (var j = 0; j < 12; j++) {
                     var center = new Object();
-                    center.x = i * 60 + 30;
-                    center.y = j * 60 + 30;
+                    center.x = i * 50 + 25;
+                    center.y = j * 50 + 25;
                     if (board[i][j] == PACMAN) {
                         context.beginPath();
-                        context.arc(center.x, center.y, 30, pac_direction[0] * Math.PI, pac_direction[1] * Math.PI); // half circle
+                        context.arc(center.x, center.y, 20, pac_direction[0] * Math.PI, pac_direction[1] * Math.PI); // half circle
                         context.lineTo(center.x, center.y);
                         context.fillStyle = pac_color; //color
                         context.fill();
                         context.beginPath();
-                        context.arc(center.x + pac_direction[2], center.y + pac_direction[3], 5, 0, 2 * Math.PI); // circle
+                        context.arc(center.x + pac_direction[2], center.y + pac_direction[3], 3, 0, 2 * Math.PI); // circle
                         context.fillStyle = "black"; //color
                         context.fill();
                     } else if (board[i][j] == FIVE_POINT) {
@@ -401,6 +401,7 @@
         }
         function gameOver() {
 			pacmanSong  = document.getElementById("pacmanSong").muted=true;
+			
 			//pacmanSong.pause();
 			//window.alert("you lost");
 			resetGame();
@@ -410,16 +411,19 @@
 			//endGame();
 			
 			//show button
-			$('#mainWindow').children().hide()
-    		$('#logo').show()
-    		$('#nav').show()
-			$('#newGame').show()
+			$('#mainWindow').children().hide();
+    		$('#logo').show();
+    		$('#nav').show();
+			$('#newGame').show();
+			$('#endGame').show();
+			$('#footer').show();
+			console.log(winGame);
 			if(winGame){
-				$('#winGame').show()
+				$('#winGame').show();
 			}else{
-				$('#loseGame').show()
+				$('#loseGame').show();
 			}
-    		$('#footer').show()
+    		
         }
 
         function endGame() {

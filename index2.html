@@ -238,15 +238,15 @@
                 <!-- <label id="gameUser"></label> -->
                 <div id="score">
                     <label for="lblScore">SCORE:</label>
-                    <output id="lblScore" type="text" >
+                    <output id="lblScore" type="text">
                 </div>
                 <div id="time">
                     <label for="lblTime">TIME:</label>
-                    <output id="lblTime" type="text" >
+                    <output id="lblTime" type="text">
                 </div>
                 <div id="live">
                     <label for="lblLive">Live:</label>
-                    <output id="lblLive" type="text" >
+                    <output id="lblLive" type="text">
                 </div>
                 <p>
                     <label for="up_settingsBoard">Up key:</label>
@@ -271,8 +271,8 @@
                 </p>
                 <p>
                     <label for="Ball_5Point_settingsBoard">5 points ball remain:</label>
-                    <input type="color" id="Ball_5Point_settingsBoard" name="Ball_5Point_settingsBoard"
-                     value="#55aecc" disabled>
+                    <input type="color" id="Ball_5Point_settingsBoard" name="Ball_5Point_settingsBoard" value="#55aecc"
+                        disabled>
                 </p>
                 <p>
                     <label for="Ball_15Point_settingsBoard">15 points ball remain:</label>
@@ -298,17 +298,18 @@
 
             <div id="gameAudio">
                 <audio loop id="pacmanSong">
-                    <source src="./resource/audio/PacMan.mp3" type="audio/mp3">Your browser does not support the audio tag.
+                    <source src="./resource/audio/PacMan.mp3" type="audio/mp3">Your browser does not support the audio
+                    tag.
                 </audio>
             </div>
 
             <div>
-                <label id="gameUser" ></label>
+                <label id="gameUser"></label>
             </div>
 
-            <div id="game" >
-               
-                <canvas id="canvas" width="730" height="730" ></canvas>
+            <div id="game">
+
+                <canvas id="canvas" width="600" height="600"></canvas>
                 <img id="monsters" src="./resource/css/img/20.png" hidden>
             </div>
 
@@ -321,15 +322,19 @@
             </p>
         </div>
 
-        <div>
+        <div id="endGame">
             <div id="winGame">
-                <video id="winVideo" width="400" >
-                    <source src="./assets/video/coffindance.mp4" mute="muted" type="video/mp4">
+                <video id="winVideo" width="400" loop autoplay>
+                    <source src="./resource/video/1.mp4" mute="muted" type="video/mp4">
                     Your browser does not support HTML5 video.
+                </video>
             </div>
 
             <div id="loseGame">
-                
+                <video id="loseVideo" width="400" loop controls autoplay>
+                    <source src="./resource/video/1.mp4" mute="muted" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
             </div>
         </div>
 
