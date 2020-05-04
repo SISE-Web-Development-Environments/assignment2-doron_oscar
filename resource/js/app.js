@@ -1,6 +1,6 @@
         // consts
         const pac_down = [0.65, 2.35, 5, -15]
-        const pac_up = [1.65, 3.35, -10, 15]
+        const pac_up = [1.65, 3.35, -5, 15]
         const pac_left = [1.15, 2.85, -5, -15]
         const pac_right = [0.15, 1.85, 5, -15]
         const BLANK = 0;
@@ -64,14 +64,15 @@
 		function resetGame(){
             window.clearInterval(interval);
             interval_counter = 0;
-            lives=5;
-            food_remain = 90;
-            game_time=10;
+            lives = 5;
+            food_remain = ballsNumber;
+            game_time= gameTimer;
             start_time =  new Date();
             score = 0;
             init_start=true;
             ghosts = new Array();
             context = canvas.getContext("2d");
+            ghosts_remain = monstersNumber;
         }
 
 		function startNewGame(){
@@ -97,21 +98,21 @@
 		function setSettingsBoard(){
 			lblScore.value = score;
 			lblTime.value = time_elapsed;
-			lblLive.value = live;
+			lblLive.value = lives;
 			ballsNumber_settingsBoard.value = ballsNumber;
 			gameTimer_settingsBoard.value = gameTimer;
 			monstersNumber_settingsBoard.value = monstersNumber;
-            up_settingsBoard.value = gameMoveKeys[0];
-            down_settingsBoard.value = gameMoveKeys[1];
-            right_settingsBoard.value = gameMoveKeys[2];
-            left_settingsBoard.value = gameMoveKeys[3];
+            up_settingsBoard.value = $("#up")[0].value;
+            down_settingsBoard.value = $("#down")[0].value;
+            right_settingsBoard.value = $("#right")[0].value;
+            left_settingsBoard.value = $("#left")[0].value;
             Ball_5Point_settingsBoard.value = ballsColor[0];
             Ball_15Point_settingsBoard.value = ballsColor[1];
             Ball_25Point_settingsBoard.value = ballsColor[2];
         }
 
 		window.addEventListener("keydown", function(e) {
-			if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+			if([gameMoveKeys[0], gameMoveKeys[1],gameMoveKeys[3] , gameMoveKeys[2]].indexOf(e.keyCode) > -1) {
 				e.preventDefault();
 			}
 		}, false);
@@ -123,6 +124,7 @@
 
         // intialize the board 
         function Start() {
+            console.log(gameMoveKeys[0]+","+gameMoveKeys[1]+","+gameMoveKeys[2]+","+gameMoveKeys[3])
 			gameBoard();
 			pacmanSong  = document.getElementById("pacmanSong").muted=false;
             board = new Array();
@@ -241,19 +243,19 @@
         }
 
         function GetKeyPressed() {
-            if (keysDown[38]) { //up
+            if (keysDown[gameMoveKeys[0]]) { //up
                 pac_direction = pac_up
                 return 1;
             }
-            if (keysDown[40]) { //down
+            if (keysDown[gameMoveKeys[1]]) { //down
                 pac_direction = pac_down
                 return 2;
             }
-            if (keysDown[37]) { //left
+            if (keysDown[gameMoveKeys[3]]) { //left
                 pac_direction = pac_left
                 return 3;
             }
-            if (keysDown[39]) { //right
+            if (keysDown[gameMoveKeys[2]]) { //right
                 pac_direction = pac_right
                 return 4;
             }
@@ -263,19 +265,20 @@
             canvas.width = canvas.width; //clean board
             lblScore.value = score;
             lblTime.value = time_elapsed;
+            lblLive.value = lives;
             for (var i = 0; i < 12; i++) {
                 for (var j = 0; j < 12; j++) {
                     var center = new Object();
-                    center.x = i * 60 + 30;
-                    center.y = j * 60 + 30;
+                    center.x = i * 50 + 25;
+                    center.y = j * 50 + 25;
                     if (board[i][j] == PACMAN) {
                         context.beginPath();
-                        context.arc(center.x, center.y, 30, pac_direction[0] * Math.PI, pac_direction[1] * Math.PI); // half circle
+                        context.arc(center.x, center.y, 20, pac_direction[0] * Math.PI, pac_direction[1] * Math.PI); // half circle
                         context.lineTo(center.x, center.y);
                         context.fillStyle = pac_color; //color
                         context.fill();
                         context.beginPath();
-                        context.arc(center.x + pac_direction[2], center.y + pac_direction[3], 5, 0, 2 * Math.PI); // circle
+                        context.arc(center.x + pac_direction[2], center.y + pac_direction[3], 3, 0, 2 * Math.PI); // circle
                         context.fillStyle = "black"; //color
                         context.fill();
                     } else if (board[i][j] == FIVE_POINT) {
@@ -291,7 +294,7 @@
                     } else if (board[i][j] == TWENTYFIVE_POINT) {
                         context.beginPath();
                         context.arc(center.x, center.y, 13, 0, 2 * Math.PI); // circle
-                        context.fillStyle = ballsColor[3]; //color
+                        context.fillStyle = ballsColor[2]; //color
                         context.fill();
                     } else if (board[i][j] == WALL) {
                         context.beginPath();
@@ -299,24 +302,14 @@
                         context.fillStyle = "grey"; //color
                         context.fill();
                     } else if (board[i][j] == GHOST) {
-                        var img = document.getElementById("monsters");
+                        var img = document.getElementById("imgMonster");
 						context.drawImage(img,center.x-20, center.y-20, 40,40);
-                        // context.beginPath();
-                        // context.arc(center.x, center.y, 13, 0, 2 * Math.PI); // circle
-                        // context.fillStyle = "orange"; //color
-                        // context.fill();
                     } else if (board[i][j] == PLUS) {
-                        context.beginPath();
-						context.arc(center.x, center.y, 6, 0, 2 * Math.PI); // circle
-                        context.fillStyle = "pink"; //color
-                        context.fill();
+                        var img = document.getElementById("imgPlus");
+						context.drawImage(img,center.x-20, center.y-20, 40,40);
                     } else if (board[i][j] == TIME) {
-						// context.beginPath();
-						// var img = document.getElementById("monsters");
-						// context.drawImage(img,center.x-20, center.y-20, 40,40);
-                    //    context.arc(center.x, center.y, 6, 0, 2 * Math.PI); // circle
-                       // context.fillStyle = "black"; //color
-                       // context.fill();
+                        var img = document.getElementById("imgTime");
+						context.drawImage(img,center.x-20, center.y-20, 40,40);
 					}
 					
 					
@@ -363,7 +356,9 @@
             console.log(lives);
             caughtByGhost();
             if (set_plus && board[shape.i][shape.j] == PLUS) {
+                console.log("Caught life");
                 caughtPlus();
+                
             }
             if (set_time && board[shape.i][shape.j] == TIME) {
                 console.log("got");
@@ -390,7 +385,7 @@
 
         function caughtPlus() {
             set_plus = false;
-            lives++;
+            lives = lives+1;
             console.log("Caught life " + lives)
         }
         function caughTime() {
