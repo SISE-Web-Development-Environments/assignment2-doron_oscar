@@ -6,16 +6,19 @@ $(document).ready(function(){
     $('#footer').show()
 
     $( "#RegisterBtn" ).click(function() {
+        resetGame();
         $('#welcome').hide();
         $('#register').show();
       });
 
       $( "#LoginBtn" ).click(function() {
+        resetGame();
         $('#welcome').hide();
         $('#login').show();
       });
 
       $( "#welcomPage" ).click(function() {
+        resetGame();
         $('#mainWindow').children().hide()
         $('#logo').show()
         $('#nav').show()
@@ -24,6 +27,7 @@ $(document).ready(function(){
       });
 
       $( "#registerPage" ).click(function() {
+        resetGame();
         $('#mainWindow').children().hide()
         $('#logo').show()
         $('#nav').show()
@@ -32,6 +36,7 @@ $(document).ready(function(){
       });
 
       $( "#loginPage" ).click(function() {
+        resetGame();
         $('#mainWindow').children().hide()
         $('#logo').show()
         $('#nav').show()
