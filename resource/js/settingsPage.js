@@ -117,31 +117,37 @@ const keyCodes = {
    
   };
 
+var up_code;
+var down_code;
+var right_code;
+var left_code;
+
+
+
 function gameControlers(event, id) {
 
     //var eventKey = event.key;
 	if (id === "up") {
-        document.getElementById("up").innerHTML = event.key;
-        //console.log(event.key)
-
+        document.getElementById("up").innerHTML = event.keyCode;
         document.getElementById("up").value = event.key;
+        up_code= event.keyCode;
 	}
 	else if (id === "down") {
-		document.getElementById("down").innerHTML = event.key;
-
+		document.getElementById("down").innerHTML = event.keyCode;
         document.getElementById("down").value = event.key;
-
+        down_code= event.keyCode;
 	}
 	else if (id === "right") {
-		document.getElementById("right").innerHTML = event.key;
-
+		document.getElementById("right").innerHTML = event.keyCode;
         document.getElementById("right").value = event.key;
+        right_code=event.keyCode;
 
 	}
 	else if (id === "left") {
-        document.getElementById("left").innerHTML = event.key;
-
+        document.getElementById("left").innerHTML = event.keyCode;
         document.getElementById("left").value = event.key;
+        console.log(" left key" + event.keyCode);
+        left_code=event.keyCode;
 
 	}
 }
@@ -245,10 +251,10 @@ $().ready(function(){
 
         submitHandler: function (form, event) {
           
-            gameMoveKeys[0] = $("#up").val();
-            gameMoveKeys[1] = $("#down").val();
-            gameMoveKeys[2] = $("#right").val();
-            gameMoveKeys[3] = $("#left").val();
+            gameMoveKeys[0] = up_code;
+            gameMoveKeys[1] = down_code;
+            gameMoveKeys[2] = right_code;
+            gameMoveKeys[3] = left_code;
             
             ballsNumber = $("#ballsNumber").val();
 
@@ -279,10 +285,12 @@ function randomSettings(){
     $("#right")[0].value= "ArrowRight";
     $("#left")[0].value= "ArrowLeft";
 
-    gameMoveKeys[0] = $("#up")[0].value;
-    gameMoveKeys[1] = $("#down")[0].value;
-    gameMoveKeys[2] = $("#right")[0].value;
-    gameMoveKeys[3] = $("#left")[0].value;
+
+    up_code =38;
+    down_code =40;
+    right_code =39;
+    left_code =37;
+
 
     $("#Ball_5Point")[0].value=getRandomColor();
     $("#Ball_15Point")[0].value=getRandomColor();
