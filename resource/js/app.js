@@ -43,6 +43,8 @@
 
 		var lives = 5;
 		var winGame=false;
+		var audio;
+		var loseToghosts=false;
 
         var food_remain = 90; // כמות כדורים
 
@@ -72,17 +74,25 @@
             init_start=true;
             ghosts = new Array();
             context = canvas.getContext("2d");
-            ghosts_remain = monstersNumber;
+			ghosts_remain = monstersNumber;
+			
+			
+			$("#pacmanSong").get(0).pause();
         }
 
 		function startNewGame(){
             resetGame();
 			Start();
+			playAudio();
 		}
 		
 		function playAudio(){
-			pacmanSong  = document.getElementById("pacmanSong").muted=true;
-			//pacmanSong.play();
+			audio = $("#pacmanSong").get(0);
+			if(audio.paused){
+				audio.play();
+			}
+			
+			
 		}
 
 		function gameBoard(){
@@ -126,7 +136,8 @@
         function Start() {
             console.log(gameMoveKeys[0]+","+gameMoveKeys[1]+","+gameMoveKeys[2]+","+gameMoveKeys[3])
 			gameBoard();
-			pacmanSong  = document.getElementById("pacmanSong").muted=false;
+			//pacmanSong  = document.getElementById("pacmanSong").muted=false;
+			document.getElementById("pacmanSong").muted=false;
             board = new Array();
             pac_color = "purple";
             var cnt = 100; // אפשרות להגדיר אחוזים מסויימים
@@ -395,8 +406,8 @@
             console.log("Caught time " + game_time)
         }
         function gameOver() {
-			pacmanSong  = document.getElementById("pacmanSong").muted=true;
-			
+			//pacmanSong  = document.getElementById("pacmanSong").muted=true;
+			document.getElementById("pacmanSong").muted=true;
 			//pacmanSong.pause();
 			//window.alert("you lost");
 			resetGame();
@@ -414,10 +425,28 @@
 			$('#footer').show();
 			console.log(winGame);
 			if(winGame){
+				$('#loseGameGhosts').hide();
+				$('#loseGameScore').hide();
+				$('.scoreUser').text( "You'r score "+ lblScore.value + " !");
 				$('#winGame').show();
-			}else{
-				$('#loseGame').show();
+				
+			}else if(loseToghosts){
+				$('#winGame').hide();
+				$('#loseGameScore').hide();
+				$('.scoreUser').text( "You'r score "+ lblScore.value );
+				$('#loseGameGhosts').show();
+				
+				//לא נפסל 5 פעמים ולא צבר יותר מ 100 נקודות
+			}else{ 
+				console.log("good")
+				$('#winGame').hide();
+				$('#loseGameGhosts').hide();
+				$('.scoreUser').text( "You are better than "+ lblScore.value + " points!");
+				$('#loseGameScore').show();
+				
 			}
+			winGame=false;
+			loseToghosts=false;
     		
         }
 
@@ -528,7 +557,8 @@
                 score -= 10;
                 lives--;
                 if (lives === 0) {
-                    pac_color = "red";
+					pac_color = "red";
+					loseToghosts=true;
                     gameOver();
                 } else {
                     // mySound.stop();
