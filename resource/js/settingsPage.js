@@ -372,6 +372,25 @@ function getRandomColor() {
 
   function startGame(){
 
+    $("#up")[0].value="";
+    $("#down")[0].value="";
+    $("#right")[0].value= "";
+    $("#left")[0].value= "";
+
+    $("#Ball_5Point")[0].value="#55aecc";
+    $("#Ball_15Point")[0].value="#d275d5";
+    $("#Ball_25Point")[0].value="#43e45b";
+
+    $("#ballsNumber")[0].value = "50";
+    
+    $("#gameTimer")[0].value = "60";
+    
+
+    $("#monstersNumber")[0].value = "1";
+    
+
+    ////////////////
+
     startNewGame();
     // $('#mainWindow').children().hide()
     // $('#logo').show()

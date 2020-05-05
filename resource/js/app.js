@@ -77,10 +77,23 @@
 			ghosts_remain = monstersNumber;
 			
 			
-			$("#pacmanSong").get(0).pause();
+            $("#pacmanSong").get(0).pause();
+            document.getElementById("pacmanSong").muted=true;
         }
 
+        function restartGame(){
+           // $("#myModal").modal('hide');
+           $.modal.close();
+            startNewGame();
+        }
+        // $('#restartGame').click(function(){
+        //     $("#myModal").modal('hide');
+        //     startNewGame();
+        // })
+      
+
 		function startNewGame(){
+           // $("#myModal").modal('hide');
             resetGame();
 			Start();
 			playAudio();
@@ -130,6 +143,7 @@
         $(document).ready(function () {
 			context = canvas.getContext("2d");
             //Start();
+            
 		});
 
         // intialize the board 
@@ -420,17 +434,19 @@
 			$('#mainWindow').children().hide();
     		$('#logo').show();
     		$('#nav').show();
-			$('#newGame').show();
+			//$('#newGame').show();
 			$('#endGame').show();
 			$('#footer').show();
 			console.log(winGame);
 			if(winGame){
+                $("#modal_win").modal('show');
 				$('#loseGameGhosts').hide();
 				$('#loseGameScore').hide();
 				$('.scoreUser').text( "You'r score "+ lblScore.value + " !");
 				$('#winGame').show();
 				
 			}else if(loseToghosts){
+                $("#modal_loseGhosts").modal('show');
 				$('#winGame').hide();
 				$('#loseGameScore').hide();
 				$('.scoreUser').text( "You'r score "+ lblScore.value );
@@ -438,7 +454,7 @@
 				
 				//לא נפסל 5 פעמים ולא צבר יותר מ 100 נקודות
 			}else{ 
-				console.log("good")
+				$("#modal_loseScore").modal('show');
 				$('#winGame').hide();
 				$('#loseGameGhosts').hide();
 				$('.scoreUser').text( "You are better than "+ lblScore.value + " points!");

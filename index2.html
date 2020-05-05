@@ -297,7 +297,7 @@
             </div>
 
             <div id="gameAudio">
-                <audio loop id="pacmanSong">
+                <audio loop muted id="pacmanSong">
                     <source src="./resource/audio/PacMan.mp3" type="audio/mp3">Your browser does not support the audio
                     tag.
                 </audio>
@@ -312,18 +312,18 @@
                 <canvas id="canvas" width="600" height="600" ></canvas>
                 <img id="imgPlus" src="./resource/css/img/plus.png" hidden>
                 <img id="imgMonster" src="./resource/css/img/20.png" hidden>
-                <img id="imgTime" src="./resource/css/img/time.png" hidden> -->
+                <img id="imgTime" src="./resource/css/img/time.png" hidden>
 
             </div>
 
         </div>
 
         <!-- New Game -->
-        <div id="newGame">
+        <!-- <div id="newGame">
             <p>
                 <button type="button" onclick="startNewGame()">New Game</button>
             </p>
-        </div>
+        </div> -->
 
         <div id="endGame">
 
@@ -331,6 +331,20 @@
 
                 <label class="scoreUser"></label>
                 <label id="winLabel">Winner!!!</label>
+
+                <div class="modal-content" id="modal_win"  tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-body">
+                        <label class="scoreUser"></label>
+                        <p>Winner!!!</p>
+                       
+                            <div id="newGame" >
+                                
+                                <button id="restartGame" type="button" aria-hidden="true" class="close" data-dismiss="modal"
+                                onclick="restartGame()" >New Game</button>
+                            </div>
+                       
+                    </div>
+                </div>
                 <!-- <video id="winVideo" width="400" loop autoplay>
                     <source src="./resource/video/1.mp4" mute="muted" type="video/mp4">
                     Your browser does not support HTML5 video.
@@ -338,8 +352,23 @@
             </div>
 
             <div id="loseGameScore">
-                <label class="scoreUser"></label>
-                <label id="loseScoreLabel"></label>
+                <!-- <label class="scoreUser"></label> -->
+                <!-- <label id="loseScoreLabel"></label> -->
+
+                <div class="modal-content" id="modal_loseScore"  tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-body">
+                        <label class="scoreUser"></label>
+                        <label id="loseScoreLabel"></label>
+                       
+                            <div id="newGame" >
+                                
+                                <button id="restartGame" type="button" aria-hidden="true" class="close" data-dismiss="modal"
+                                onclick="restartGame()" >New Game</button>
+                            </div>
+                       
+                    </div>
+                </div>
+
                 <!-- <video id="loseVideo" width="400" loop controls autoplay>
                     <source src="./resource/video/1.mp4" mute="muted" type="video/mp4">
                     Your browser does not support HTML5 video.
@@ -347,8 +376,22 @@
             </div>
 
             <div id="loseGameGhosts">
-                <label class="scoreUser"></label>
-                <label id="loseGhostsLabel">Loser!</label>
+                <!-- <label class="scoreUser"></label>
+                <label id="loseGhostsLabel">Loser!</label> -->
+
+                <div class="modal-content" id="modal_loseGhosts"  tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-body">
+                        <label class="scoreUser"></label>
+                        <p>Loser!</p>
+                       
+                            <div id="newGame" >
+                                
+                                <button id="restartGame" type="button" aria-hidden="true" class="close" data-dismiss="modal"
+                                onclick="restartGame()" >New Game</button>
+                            </div>
+                       
+                    </div>
+                </div>
                 <!-- <video id="loseVideo" width="400" loop controls autoplay>
                     <source src="./resource/video/1.mp4" mute="muted" type="video/mp4">
                     Your browser does not support HTML5 video.
