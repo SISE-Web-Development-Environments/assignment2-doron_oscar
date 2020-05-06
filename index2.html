@@ -38,7 +38,7 @@
     <!-- javascript -->
     <script type="text/javascript" src="./resource/js/welcomePage.js"></script>
 
-
+    <link rel="shortcut icon" href="#" />
 
 
 </head>
@@ -74,9 +74,12 @@
             <div class="btn_text">
                 <a href="#AboutBtn" rel="modal:open" class="mainBtn_a">About</a>
                 <div id="AboutBtn" class="modal">
-                    <p>created by:<br> <strong>Oscar</strong> and <strong>Doron</strong><br>
+                    <p>
+                        Created by:<br>
+                         <strong>Oscar</strong> and <strong>Doron</strong>
+                         <br><br>
 
-                        Plugins: <br>
+                        Plugin: <br>
                         jQuery: <a href=http://www.jquerybyexample.net/2012/06/jquery-string-functions.html>
                             jQuery</a><br>
                         modal tools: <a href="http://jquerytools.org">Tools</a><br><br>
@@ -324,6 +327,10 @@
             <div id="gameAudio">
                 <audio loop muted id="pacmanSong">
                     <source src="./resource/audio/PacMan.mp3" type="audio/mp3">Your browser does not support the audio
+                    tag.
+                </audio>
+                <audio muted id="pacmanDeathSong">
+                    <source src="./resource/audio/Pacman-death-sound.mp3" type="audio/mp3">Your browser does not support the audio
                     tag.
                 </audio>
             </div>
