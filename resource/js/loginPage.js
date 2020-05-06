@@ -41,6 +41,7 @@ $("#loginForm").validate({
                       $('#logo').show();
                        $('#nav').show();
                        $('#settings').show();
+                       $('#footer').show()
                        
                        return false;
                     }   

@@ -82,6 +82,8 @@ function resetGame() {
 
     $("#pacmanSong").get(0).pause();
     document.getElementById("pacmanSong").muted = true;
+    $("#pacmanDeathSong").get(0).pause();
+    document.getElementById("pacmanDeathSong").muted=true;
 }
 
 function restartGame() {
@@ -524,29 +526,32 @@ function gameOver() {
     $('#logo').show();
     $('#nav').show();
     //$('#newGame').show();
-    $('#endGame').show();
+   // $('#endGame').show();
     $('#footer').show();
     if (winGame) {
         $("#modal_win").modal('show');
-        $('#loseGameGhosts').hide();
-        $('#loseGameScore').hide();
-        $('.scoreUser').text("You'r score " + lblScore.value + " !");
-        $('#winGame').show();
+        $('.scoreUser').text( "You'r score "+ lblScore.value + " !");
+        // $('#loseGameGhosts').hide();
+        // $('#loseGameScore').hide();				
+        // $('#winGame').show();
 
     } else if (loseToghosts) {
         $("#modal_loseGhosts").modal('show');
-        $('#winGame').hide();
-        $('#loseGameScore').hide();
-        $('.scoreUser').text("You'r score " + lblScore.value);
-        $('#loseGameGhosts').show();
-
+        $('.scoreUser').text( "You'r score "+ lblScore.value );
+        $("#pacmanDeathSong").get(0).play();
+        document.getElementById("pacmanDeathSong").muted=false;
+        // $('#winGame').hide();
+        // $('#loseGameScore').hide();				
+        // $('#loseGameGhosts').show();
         //לא נפסל 5 פעמים ולא צבר יותר מ 100 נקודות
     } else {
         $("#modal_loseScore").modal('show');
-        $('#winGame').hide();
-        $('#loseGameGhosts').hide();
-        $('.scoreUser').text("You are better than " + lblScore.value + " points!");
-        $('#loseGameScore').show();
+                $('.scoreUser').text( "You are better than "+ lblScore.value + " points!");
+                $("#pacmanDeathSong").get(0).play();
+                document.getElementById("pacmanDeathSong").muted=false;
+				// $('#winGame').hide();
+				// $('#loseGameGhosts').hide();
+				// $('#loseGameScore').show();
 
     }
     winGame = false;
