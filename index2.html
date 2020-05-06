@@ -258,16 +258,20 @@
             <div id="settingsBoard">
                 <!-- <label id="gameUser"></label> -->
                 <div id="score">
-                    <label for="lblScore">SCORE:</label>
-                    <output id="lblScore" type="text">
+                    <p>
+                    <label for="lblScore" style="font-size: 25px;">Score:</label>
+                    <output id="lblScore" type="text" style="font-size: 25px;">
+                    </p>
                 </div>
                 <div id="time">
-                    <label for="lblTime">TIME:</label>
-                    <output id="lblTime" type="text">
+                    <p>
+                    <label for="lblTime" style="font-size: 25px;">Time:</label>
+                    <output id="lblTime" type="text" style="font-size: 25px;">
+                    </p>
                 </div>
                 <div id="live">
-                    <label for="lblLive">Live:</label>
-                    <output id="lblLive" type="text">
+                    <label for="lblLive" style="font-size: 25px;">Live:</label>
+                    <output id="lblLive" type="text" style="font-size: 25px;">
                 </div>
                 <p>
                     <label for="up_settingsBoard">Up key:</label>
@@ -291,24 +295,24 @@
                         value="50">
                 </p>
                 <p>
-                    <label for="Ball_5Point_settingsBoard">5 points ball remain:</label>
+                    <label for="Ball_5Point_settingsBoard">5 points ball:</label>
                     <input type="color" id="Ball_5Point_settingsBoard" name="Ball_5Point_settingsBoard" value="#55aecc"
                         disabled>
                 </p>
                 <p>
-                    <label for="Ball_15Point_settingsBoard">15 points ball remain:</label>
+                    <label for="Ball_15Point_settingsBoard">15 points ball:</label>
                     <input type="color" id="Ball_15Point_settingsBoard" name="Ball_15Point_settingsBoard"
                         value="#d275d5" disabled>
                 </p>
                 <p>
-                    <label for="Ball_25Point_settingsBoard">25 points ball remain:</label>
+                    <label for="Ball_25Point_settingsBoard">25 points ball:</label>
                     <input type="color" id="Ball_25Point_settingsBoard" name="Ball_25Point_settingsBoard"
                         value="#43e45b" disabled>
                 </p>
                 <p>
-                    <label>time for the game (measured in seconds):</label>
+                    <!-- <label>time for the game (measured in seconds):</label> -->
                     <output type="number" id="gameTimer_settingsBoard" name="gameTimer_settingsBoard" min="60"
-                        value="60">
+                        value="60" hidden>
                 </p>
                 <p>
                     <label>Number of monsters:</label>
@@ -330,7 +334,7 @@
 
             <div id="game" >
                
-                <canvas id="canvas" width="600" height="600" ></canvas>
+                <canvas id="canvas" width="600" height="600" style="border:2px solid gray;"></canvas>
                 <img id="imgPlus" src="./resource/css/img/plus.png" hidden>
                 <img id="imgMonster" src="./resource/css/img/20.png" hidden>
                 <img id="imgTime" src="./resource/css/img/time.png" hidden>

@@ -119,7 +119,7 @@ function gameControlers(event, id) {
         document.getElementById("up").innerHTML = event.keyCode;
         //document.getElementById("up").innerText = event.keyCode;
         document.getElementById("up").value = event.key;
-        document.getElementById("up").keyCode = event.keyCode;
+        //document.getElementById("up").keyCode = event.keyCode;
         up_code= event.keyCode;
 	}
 	else if (id === "down") {
@@ -372,10 +372,10 @@ function getRandomColor() {
 
   function startGame(){
 
-    $("#up")[0].value="";
-    $("#down")[0].value="";
-    $("#right")[0].value= "";
-    $("#left")[0].value= "";
+    // $("#up")[0].value="ArrowUp";
+    // $("#down")[0].value="ArrowDown";
+    // $("#right")[0].value= "ArrowRight";
+    // $("#left")[0].value= "ArrowLeft";
 
     $("#Ball_5Point")[0].value="#55aecc";
     $("#Ball_15Point")[0].value="#d275d5";

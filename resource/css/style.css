@@ -269,12 +269,12 @@ p#welcomeText{
    margin-left:2rem;
 }
 
-div#score{
+/* div#score{
     text-align: left;
 }
 div#time{
     text-align: right;
-}
+} */
 
 .WelcomePage{
     width:50%;
@@ -328,7 +328,11 @@ div#time{
 	top:1px;
 }
 
-
+.scoreUser{
+    font-size: 30px;
+    color: rgb(216, 20, 20);
+    font-weight: bold;
+}
 
 fieldset{
    border: hidden;
