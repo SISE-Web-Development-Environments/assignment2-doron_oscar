@@ -86,11 +86,7 @@
            $.modal.close();
             startNewGame();
         }
-        // $('#restartGame').click(function(){
-        //     $("#myModal").modal('hide');
-        //     startNewGame();
-        // })
-      
+        
 
 		function startNewGame(){
            // $("#myModal").modal('hide');
@@ -120,7 +116,7 @@
 
 		function setSettingsBoard(){
 			lblScore.value = score;
-			lblTime.value = time_elapsed;
+			lblTime.value =  Math.floor(game_time- time_elapsed);
 			lblLive.value = lives;
 			ballsNumber_settingsBoard.value = ballsNumber;
 			gameTimer_settingsBoard.value = gameTimer;
@@ -198,19 +194,21 @@
                 //put obstacles in (i=3,j=3) and (i=3,j=4) and (i=3,j=5), (i=6,j=1) and (i=6,j=2)
                 for (var j = 0; j < 12; j++) {
                     if (//Walls
-                        (i == 3 && j == 3) ||
-                        (i == 3 && j == 4) ||
-                        (i == 3 && j == 5) ||
-                        (i == 6 && j == 1) ||
-                        (i == 6 && j == 2)
+                         (i == 3 && j == 3) ||
+                         (i == 3 && j == 4) ||
+                         (i == 3 && j == 5) ||
+                         (i == 6 && j == 1) ||
+                         (i == 6 && j == 2)
+                        
                     ) {
                         board[i][j] = WALL;
                     }
                     else if (//Ghost
-                        (i == 0 && j == 0) ||
-                        (i == 11 && j == 11) ||
-                        (i == 11 && j == 0) ||
-                        (i == 0 && j == 11)
+                         (i == 0 && j == 0) ||
+                         (i == 11 && j == 11) ||
+                         (i == 11 && j == 0) ||
+                         (i == 0 && j == 11)
+                        
                     ) {
                         continue;
                     }
@@ -289,7 +287,7 @@
         function Draw() {
             canvas.width = canvas.width; //clean board
             lblScore.value = score;
-            lblTime.value = time_elapsed;
+            lblTime.value =  Math.floor(game_time- time_elapsed);
             lblLive.value = lives;
             for (var i = 0; i < 12; i++) {
                 for (var j = 0; j < 12; j++) {
@@ -415,9 +413,12 @@
         }
         function caughTime() {
             set_time = false;
-            console.log("Current time " + game_time)
-            game_time += 10;
-            console.log("Caught time " + game_time)
+            console.log("Current time " + Math.floor(game_time- time_elapsed))
+            //game_time += 10;
+            console.log(game_time);
+            game_time =parseInt(game_time) + parseInt(10);
+            console.log(game_time);
+            console.log("Caught time " + Math.floor(game_time- time_elapsed))
         }
         function gameOver() {
 			//pacmanSong  = document.getElementById("pacmanSong").muted=true;

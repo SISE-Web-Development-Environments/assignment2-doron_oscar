@@ -33,6 +33,7 @@
 
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="./resource/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- javascript -->
     <script type="text/javascript" src="./resource/js/welcomePage.js"></script>
@@ -48,14 +49,22 @@
     <!-- Main Window div-->
     <div class="mainWindow" id="mainWindow">
 
+      
         <!-- logo div-->
         <div class="logo" id="logo">
-            <img src="./resource/css/img/logo.png" alt="pacslogo">
+            <img class="headerImg1" src="./resource/css/img/22.png">
+            <p class="headerInfo" style="float: left;">Doron Shamai <br> 312538325</p>
+            <img class="headerImg2" src="./resource/css/img/23.png">
+            <p class="headerInfo"  style="float: right;">Oscar Epshtein <br> 206228462</p>
+            <img class="imagePacman" src="./resource/css/img/pacman.png">
+            <img src="./resource/css/img/logo.png"  id="logoImg" alt="pacslogo">
+          
         </div>
 
         <!-- nav div-->
-        <div class="nav" id="nav">
 
+        <div class="nav" id="nav">
+            <!-- <img class="imagePacman" src="./resource/css/img/pacman.png"> -->
             <button class="mainBtn" id="welcomPage">Welcome</button>
             <button class="mainBtn" id="registerPage">Register</button>
             <button class="mainBtn" id="loginPage">Login</button>
@@ -67,12 +76,14 @@
                 <div id="AboutBtn" class="modal">
                     <p>created by:<br> <strong>Oscar</strong> and <strong>Doron</strong><br>
 
-                        Plugins used: <br>
-                        • jQuery validation: <a
-                            href=http://www.jquerybyexample.net/2012/06/jquery-string-functions.html>jQuery
-                            Validtion</a><br>
-                        • Pop up modal: <a href="http://jquerytools.org">jQuery tools</a><br><br>
-                        Contact:<br>
+                        Plugins: <br>
+                        jQuery: <a href=http://www.jquerybyexample.net/2012/06/jquery-string-functions.html>
+                            jQuery</a><br>
+                        modal tools: <a href="http://jquerytools.org">Tools</a><br><br>
+                        <br>
+                        Difficulties: <br>
+                        The difficulty with the exercise was to write the data validation in jQuery
+                       
                     </p>
                     <a href="#" style="margin-top: 5rem;" class="closeBtn" rel="modal:close">Close</a>
                 </div>
@@ -83,14 +94,20 @@
         <!-- Welcome Page div-->
         <div class="WelcomePage" id="welcome">
 
-            <p> </p>
-            <p> </p>
+            <!-- <p id="welcomeText"> ♥ ᗯEᒪᑕOᗰE TO Oᑌᖇ ᑭᗩᑕᗰᗩᑎ GᗩᗰE ♥  </p>
+            <p id="welcomeText"> ᖇEᗩᗪY TO ᑭᒪᗩY?</p>
+            <p id="welcomeText">First time here?        </p> -->
+            <p id="welcomeText">♥ WELCOME TO OUR PACMAN GAME ♥</p>
+           
+            <p id="welcomeText">FIRST TIME HERE?</p>
 
             <button class="ConnectBtn" id="RegisterBtn">Register</button>
 
-            <p> </p>
+            <p id="welcomeText">READY TO PLAY?</p>
 
             <button class="ConnectBtn" id="LoginBtn">Login</button>
+           
+
 
         </div>
 
@@ -98,7 +115,9 @@
         <div class="registerPage" id=register>
 
             <form class="cmxform" id="signupForm" method="get" action="">
+                <p id="welcomeText" style="font-size: 30px;">Sign up</p>
                 <fieldset>
+                   
                     <p>
                         <label for="firstname">Firstname</label>
                         <input id="firstname" name="firstname" type="text">
@@ -127,7 +146,7 @@
 
                     </p>
                     <p>
-                        <input class="submit" type="submit" value="Submit">
+                        <input  class="submit" type="submit" value="Submit">
                     </p>
                     <script type="text/javascript" src="./resource/js/registerPage.js"></script>
 
@@ -139,9 +158,11 @@
 
         <!-- Login Page -->
 
-        <div class="loginPage" id="login">
+        <div class="loginPage" id="login" >
             <form class="cmxform" id="loginForm" method="get" action="">
+                <p id="welcomeText" style="font-size: 30px;">Sign in</p>
                 <fieldset>
+                    
                     <p>
                         <label for="username_login">Username</label>
                         <input id="username_login" name="username_login" type="text">
@@ -151,7 +172,7 @@
                         <input id="password_login" name="password_login" type="password">
                     </p>
                     <p>
-                        <input class="submit" type="submit" value="Login">
+                        <input  class="submit" type="submit" value="Login">
                     </p>
                     <!-- <script type="text/javascript" src="./resource/js/registerPage.js"></script> -->
 
@@ -166,7 +187,7 @@
                 <fieldset>
                     <p>
                         <label>Set randomize settings:</label>
-                        <button type="button" onclick="randomSettings()">Random Settings</button>
+                        <button id="randomBtn" type="button" onclick="randomSettings()">Random Settings</button>
                     </p>
                     <p>
                         <label for="up">Up key:</label>
@@ -325,7 +346,7 @@
             </p>
         </div> -->
 
-        <div id="endGame">
+        <div id="endGame" >
 
             <div id="winGame">
 
@@ -339,7 +360,7 @@
                        
                             <div id="newGame" >
                                 
-                                <button id="restartGame" type="button" aria-hidden="true" class="close" data-dismiss="modal"
+                                <button id="submitBtn" type="button" aria-hidden="true" class="submit" data-dismiss="modal"
                                 onclick="restartGame()" >New Game</button>
                             </div>
                        
@@ -362,7 +383,7 @@
                        
                             <div id="newGame" >
                                 
-                                <button id="restartGame" type="button" aria-hidden="true" class="close" data-dismiss="modal"
+                                <button id="submitBtn" type="button" aria-hidden="true"class="submit" data-dismiss="modal"
                                 onclick="restartGame()" >New Game</button>
                             </div>
                        
@@ -386,7 +407,7 @@
                        
                             <div id="newGame" >
                                 
-                                <button id="restartGame" type="button" aria-hidden="true" class="close" data-dismiss="modal"
+                                <button id="submitBtn" type="button" aria-hidden="true" class="submit" data-dismiss="modal"
                                 onclick="restartGame()" >New Game</button>
                             </div>
                        
@@ -399,6 +420,30 @@
             </div>
         </div>
 
+<!-- Footer Page div -->
+<div class="FooterPage" id="footer">
+
+    <!-- DORON -->
+    <p class="footerInfo" style="float: left;" >Doron: <br></p>
+    <!-- <a href="https://www.facebook.com/doron.shamay" class="fa fa-facebook" style="float: left;"></a> -->
+    <a href="https://www.facebook.com/doron.shamay" class="facebook"><i class="fa fa-facebook" style="float: left;"></i></a>
+    <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" class="google"><i class="fa fa-google" style="float: left;"></i></a>
+    <a href="#" class="github"><i class="fa fa-github" style="float: left;"></i></a>
+
+
+    <!-- OSCAR -->
+   
+    <!-- <a href="https://www.facebook.com/osacrepshtein" class="fa fa-facebook" style="float: right;"></a> -->
+    <a href="https://www.facebook.com/osacrepshtein" class="facebook"><i class="fa fa-facebook" style="float: right;"></i></a>
+    <a href="#" class="google"><i class="fa fa-google" style="float: right;"></i></a>
+    <a href="#" class="linkedin"><i class="fa fa-linkedin" style="float: right;"></i></a>
+    <a href="#" class="github"><i class="fa fa-github" style="float: right;"></i></a>
+    <p class="footerInfo" style="float: right;">Oscar: <br></p>
+
+    <p id="footerText">This pacman created by Oscar & Doron</p>
+    
+    
+</div>
 
 
     </div>
@@ -406,12 +451,7 @@
 
 
 
-    <!-- Footer Page div -->
-    <div class="FooterPage" id="footer">
-        <!-- <p>This pacman created by Oscar & Doron </p> -->
-        <label id="footerText">This pacman created by Oscar & Doron</label>
-    </div>
-
+    
 
 
 </body>
