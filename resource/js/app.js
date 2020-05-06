@@ -79,8 +79,8 @@
 			
             $("#pacmanSong").get(0).pause();
             document.getElementById("pacmanSong").muted=true;
-            $("#pacmanDeathSong").get(0).pause();
-            document.getElementById("pacmanDeathSong").muted=true;
+             $("#pacmanDeathSong").get(0).pause();
+             document.getElementById("pacmanDeathSong").muted=true;
         }
 
         function restartGame(){
@@ -103,9 +103,9 @@
 			if(audio.paused){
 				audio.play();
             }
-            if(audio1.paused){
-                audio1.play()
-            }
+            // if(audio1.paused){
+            //     audio1.play()
+            // }
 			
 			
 		}
@@ -474,7 +474,7 @@
 			}
 			winGame=false;
             loseToghosts=false;
-            $("#pacmanDeathSong").get(0).pause();
+           // $("#pacmanDeathSong").get(0).pause();
     		
         }
 
