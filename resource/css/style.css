@@ -1,14 +1,13 @@
-
+ 
 body{
     flex:1;
-
+    
 }
 
 .mainWindow{
     text-align: center;
     /* background-image: url("img/background.jpg"); */
     /* background-image: url("./resource/img/background.jpg"); */
-    background-image: url(./img/background2.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -27,88 +26,17 @@ body{
     font-size: 38px;
     cursor: default;
 }
-/* .header{
+.header{
  width:25vw;
  height: 10vh;
  margin-top: 10px
-} */
-
-p#welcomeText{
-    font-size: 26px;
-    /* font-family: Rockwell */
-    font-family: Lucida Handwriting
-
 }
 #nav
 {
 	left: 0px;
 	width: 100%;
     text-align: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
 
-}
-
-#logoImg{
-    width:25vw;
-    height: 10vh;
-    margin-top: 2rem;
-}
-
-.imagePacman{
-    width: 12vw; 
-    height: 12vh;
-    margin-top: 2rem;
-   
-    /* position: fixed; */
-  
-
-}
-.headerInfo{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
-    margin-top: 2rem;
-}
-.headerImg1{
-    width:4vw;
-    height: 7vh;
-    margin-top: 2rem;
-    margin-left: 2rem;
-    float: left;
-}
-
-.headerImg2{
-    width:4vw;
-    height: 7vh;
-    margin-top: 2rem;
-    margin-right: 2rem;
-    float: right;
-}
-/* #logo{
-    display: flex;
-    justify-content: space-between;
-} */
-
-
-#randomBtn {
-	box-shadow:inset 0px 1px 0px 0px #d9fbbe;
-	background-color:#a7f28a;
-	border:1px solid #208000;
-	display:inline-block;
-	cursor:pointer;
-	color:#000000;
-	font-family:Arial;
-	font-size:17px;
-	padding:8px 11px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #61b36d;
-}
-#randomBtn:hover {
-	background-color:#8dff70;
-}
-#randomBtn:active {
-	position:relative;
-	top:1px;
 }
 .btn_text
 {
@@ -140,12 +68,10 @@ p#welcomeText{
         cursor: pointer;
         text-align: center;
         text-decoration: none;
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-
+            
 }
 .mainBtn {
-
+   
         box-shadow: 0 5px #999;
         background:linear-gradient(to bottom, #ffecb2 5%, #d6c26b 100%);
         background-color: rgb(212, 208, 144);
@@ -166,9 +92,8 @@ p#welcomeText{
         padding: 8px 2px;
         /* outline: none;
         border:none; */
-
-
-
+    
+    
 }
 .mainBtn:hover {
 	background:linear-gradient(to bottom, #d6c26b 5%, #ffecb2 100%);
@@ -204,7 +129,6 @@ p#welcomeText{
 }
 
 .ConnectBtn {
-    /* margin-top: 2rem; */
     margin-bottom: 2rem;
 	box-shadow:inset 0px 0px 0px 0px #ffffff;
 	background-color:transparent;
@@ -219,9 +143,9 @@ p#welcomeText{
     /* padding:15px 60px; */
     width: 400px;
     text-decoration:none;
-
-
-
+    
+    
+    
 }
 .ConnectBtn:hover {
 	background-color:transparent;
@@ -232,8 +156,8 @@ p#welcomeText{
 }
 
 
-/* section
-{ */
+section
+{
     /* position: absolute; */
 	/* top: 150px; */
 	/* right: 300px; */
@@ -241,11 +165,11 @@ p#welcomeText{
     height: 650px;  */
     /* align-content: center; */
     /*this 2 only for help us see the layout of the section*/
-    /* border-color: #000000;
-    border-style: solid; */
+    border-color: #000000; 
+    border-style: solid;
 
-/*
-} */
+   
+}
 
 #settingsBoard{
     margin: 0 2% ;
@@ -255,26 +179,13 @@ p#welcomeText{
     border: #000000;
 
 }
-#gameUser{
-    font-weight: bold;
-    margin: 2rem;
-    float: left;
-    font-size: 24px;
-}
 
- #game{
-   margin-top:2rem;
-   margin-bottom:2rem;
-   margin-right:2rem;
-   margin-left:2rem;
-}
-
-/* div#score{
+div#score{
     text-align: left;
 }
 div#time{
     text-align: right;
-} */
+}
 
 .WelcomePage{
     width:50%;
@@ -285,10 +196,10 @@ div#time{
     margin-left:25%;
 }
 
-/* .FormWindow{
+.FormWindow{
         text-align: center;
         background-color: aquamarine;
-
+        /* background-image: url("./resource/img/background.jpg"); */
         background-attachment: fixed;
         background-repeat: no-repeat;
         -webkit-background-size: cover;
@@ -298,44 +209,10 @@ div#time{
         width: 50%;
         height: 50%;
         margin: 0 auto;
-
+        /* margin-bottom: 0px; */
         margin-bottom: 2rem;
-
-} */
-
-
-.submit {
-    margin-top: 1rem;
-	box-shadow:inset 0px 1px 0px 0px #ffffff;
-	background-color:#faebfa;
-	border-radius:6px;
-	border:1px solid #b0aeb0;
-	display:inline-block;
-	cursor:pointer;
-	color:#423f42;
-	font-family:Arial;
-	font-size:19px;
-	font-weight:bold;
-	padding:12px 41px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #ffffff;
-}
-.submit:hover {
-    background-color:#f0d8f0;
-}
-.submit:active {
-	position:relative;
-	top:1px;
-}
-
-.scoreUser{
-    font-size: 30px;
-    color: rgb(216, 20, 20);
-    font-weight: bold;
-}
-
-fieldset{
-   border: hidden;
+        /* border:gray solid; */
+        /* border-bottom: none; */
 }
 
 label{
@@ -343,7 +220,7 @@ label{
     font-size:20px;
     color:black;
     font-family: Comic Sans MS, cursive, sans-serif;
-
+    
 }
 
 output{
@@ -360,83 +237,41 @@ output{
     font-size: 15px;
     font-weight: bold;
  }
-
+ 
 .FooterPage{
-         background:  linear-gradient(
-            rgba(0, 0, 0, 0.3),
-            rgba(0, 0, 0, 0.3)
+        background:  linear-gradient(
+            rgba(0, 0, 0, 0.4), 
+            rgba(0, 0, 0, 0.4)
           );
         background-attachment: fixed;
         background-repeat: no-repeat;
-        /* -webkit-background-size: cover;
+        -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
-        background-size: cover; */
-        /* background-color: #f0d8f0; */
-
-        /* width: 90%; */
+        background-size: cover;
+        width: 90%;
         margin: 0 auto;
         margin-bottom: 0px;
         border:gray solid;
-        /* border-top:none; */
-        border-bottom: none;
-        border-right: none;
-        border-left: none;
-
+        border-top:none;
         font-family: Comic Sans MS, cursive, sans-serif;
         color:White;
         font-size:25px;
 
+       
 }
-p#footerText{
+.footerText{
     text-align: center;
-     margin:0 auto;
-     padding-top: 2rem;
-     padding-bottom: 2rem;
+    margin:0 auto;
+
 
 }
-
-.footerInfo{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
-
-}
-.fa {
-    padding: 10px;
-    font-size: 40px;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    text-decoration: none;
-    margin: 5px 2px;
-  }
-
-  .fa:hover {
-      opacity: 0.7;
-  }
-
-  .fa-facebook {
-    background: #3B5998;
-    color: white;
-  }
-  .fa-google {
-    background: #dd4b39;
-    color: white;
-  }
-  .fa-linkedin {
-    background: #007bb5;
-    color: white;
-  }
-  .fa-github {
-    background: #000000;
-    color: white;
-  }
     /* .FooterPageText{
         text-align: center;
         margin:0 auto;
         border-top:none;
         border-radius: 25px;
-
+       
 
     } */
 
@@ -465,7 +300,6 @@ p#footerText{
     .modal{
         font-family: Comic Sans MS, cursive, sans-serif;
         font-size: 24px;
-        text-align: center;
     }
 
 

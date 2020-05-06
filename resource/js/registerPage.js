@@ -13,10 +13,6 @@
  */
 $(document).ready(function(e){
     $('#signupForm').submit(function(){
-        if ($(this).valid() !== true) {
-        }else{
-
-        
         /**
          * what the sumbit button will do
          */
@@ -45,7 +41,7 @@ $(document).ready(function(e){
         $('#mainWindow').children().hide()
         $('#logo').show()
         $('#nav').show()
-        $('#login').show()
+        $('#welcome').show()
         $('#footer').show()
     
 
@@ -53,7 +49,6 @@ $(document).ready(function(e){
         //let password = $('#signupForm').find('input[name="password"]').val();
         //localStorage.setItem(username, password);
         //go to home page!
-    }
         return false;
     
 
@@ -75,21 +70,6 @@ $.validator.addMethod("checkValidDate", function (value, element) {
     return Date.now() - new Date(value).getTime() > 0;
     });
 
-    /*check valid name*/
-$.validator.addMethod("checkNameExists", function (value, element) {
-    console.log(value);
-    
-
-    for (var i = 0; i < users.length; i++) {
-        if (users[i].username == value) {
-            console.log(users[i].username);
-            return false;
-        }
-    }
-    return true;
-     
-    }),
-
 
 
     // validate signup form on keyup and submit
@@ -106,7 +86,6 @@ $.validator.addMethod("checkNameExists", function (value, element) {
             },
             username: {
                 required: true,
-                checkNameExists: true,
                 minlength: 2
             },
             password: {
@@ -134,7 +113,6 @@ $.validator.addMethod("checkNameExists", function (value, element) {
              },
             username: {
                 required: "Please enter a username",
-                checkNameExists: "This username already exists",
                 minlength: "Your username must consist of at least 2 characters"
             },
             password: {

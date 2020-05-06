@@ -33,12 +33,11 @@
 
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="./resource/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- javascript -->
     <script type="text/javascript" src="./resource/js/welcomePage.js"></script>
 
-    <link rel="shortcut icon" href="#" />
+
 
 
 </head>
@@ -49,22 +48,14 @@
     <!-- Main Window div-->
     <div class="mainWindow" id="mainWindow">
 
-      
         <!-- logo div-->
         <div class="logo" id="logo">
-            <img class="headerImg1" src="./resource/css/img/22.png">
-            <p class="headerInfo" style="float: left;">Doron Shamai <br> 312538325</p>
-            <img class="headerImg2" src="./resource/css/img/23.png">
-            <p class="headerInfo"  style="float: right;">Oscar Epshtein <br> 206228462</p>
-            <img class="imagePacman" src="./resource/css/img/pacman.png">
-            <img src="./resource/css/img/logo.png"  id="logoImg" alt="pacslogo">
-          
+            <img src="./resource/css/img/logo.png" alt="pacslogo">
         </div>
 
         <!-- nav div-->
-
         <div class="nav" id="nav">
-            <!-- <img class="imagePacman" src="./resource/css/img/pacman.png"> -->
+
             <button class="mainBtn" id="welcomPage">Welcome</button>
             <button class="mainBtn" id="registerPage">Register</button>
             <button class="mainBtn" id="loginPage">Login</button>
@@ -74,19 +65,14 @@
             <div class="btn_text">
                 <a href="#AboutBtn" rel="modal:open" class="mainBtn_a">About</a>
                 <div id="AboutBtn" class="modal">
-                    <p>
-                        Created by:<br>
-                         <strong>Oscar</strong> and <strong>Doron</strong>
-                         <br><br>
+                    <p>created by:<br> <strong>Oscar</strong> and <strong>Doron</strong><br>
 
-                        Plugin: <br>
-                        jQuery: <a href=http://www.jquerybyexample.net/2012/06/jquery-string-functions.html>
-                            jQuery</a><br>
-                        modal tools: <a href="http://jquerytools.org">Tools</a><br><br>
-                        <br>
-                        Difficulties: <br>
-                        The difficulty with the exercise was to write the data validation in jQuery
-                       
+                        Plugins used: <br>
+                        • jQuery validation: <a
+                            href=http://www.jquerybyexample.net/2012/06/jquery-string-functions.html>jQuery
+                            Validtion</a><br>
+                        • Pop up modal: <a href="http://jquerytools.org">jQuery tools</a><br><br>
+                        Contact:<br>
                     </p>
                     <a href="#" style="margin-top: 5rem;" class="closeBtn" rel="modal:close">Close</a>
                 </div>
@@ -97,20 +83,14 @@
         <!-- Welcome Page div-->
         <div class="WelcomePage" id="welcome">
 
-            <!-- <p id="welcomeText"> ♥ ᗯEᒪᑕOᗰE TO Oᑌᖇ ᑭᗩᑕᗰᗩᑎ GᗩᗰE ♥  </p>
-            <p id="welcomeText"> ᖇEᗩᗪY TO ᑭᒪᗩY?</p>
-            <p id="welcomeText">First time here?        </p> -->
-            <p id="welcomeText">♥ WELCOME TO OUR PACMAN GAME ♥</p>
-           
-            <p id="welcomeText">FIRST TIME HERE?</p>
+            <p> </p>
+            <p> </p>
 
             <button class="ConnectBtn" id="RegisterBtn">Register</button>
 
-            <p id="welcomeText">READY TO PLAY?</p>
+            <p> </p>
 
             <button class="ConnectBtn" id="LoginBtn">Login</button>
-           
-
 
         </div>
 
@@ -118,9 +98,7 @@
         <div class="registerPage" id=register>
 
             <form class="cmxform" id="signupForm" method="get" action="">
-                <p id="welcomeText" style="font-size: 30px;">Sign up</p>
                 <fieldset>
-                   
                     <p>
                         <label for="firstname">Firstname</label>
                         <input id="firstname" name="firstname" type="text">
@@ -149,7 +127,7 @@
 
                     </p>
                     <p>
-                        <input  class="submit" type="submit" value="Submit">
+                        <input class="submit" type="submit" value="Submit">
                     </p>
                     <script type="text/javascript" src="./resource/js/registerPage.js"></script>
 
@@ -161,11 +139,9 @@
 
         <!-- Login Page -->
 
-        <div class="loginPage" id="login" >
+        <div class="loginPage" id="login">
             <form class="cmxform" id="loginForm" method="get" action="">
-                <p id="welcomeText" style="font-size: 30px;">Sign in</p>
                 <fieldset>
-                    
                     <p>
                         <label for="username_login">Username</label>
                         <input id="username_login" name="username_login" type="text">
@@ -175,7 +151,7 @@
                         <input id="password_login" name="password_login" type="password">
                     </p>
                     <p>
-                        <input  class="submit" type="submit" value="Login">
+                        <input class="submit" type="submit" value="Login">
                     </p>
                     <!-- <script type="text/javascript" src="./resource/js/registerPage.js"></script> -->
 
@@ -190,7 +166,7 @@
                 <fieldset>
                     <p>
                         <label>Set randomize settings:</label>
-                        <button id="randomBtn" type="button" onclick="randomSettings()">Random Settings</button>
+                        <button type="button" onclick="randomSettings()">Random Settings</button>
                     </p>
                     <p>
                         <label for="up">Up key:</label>
@@ -261,20 +237,16 @@
             <div id="settingsBoard">
                 <!-- <label id="gameUser"></label> -->
                 <div id="score">
-                    <p>
-                    <label for="lblScore" style="font-size: 25px;">Score:</label>
-                    <output id="lblScore" type="text" style="font-size: 25px;">
-                    </p>
+                    <label for="lblScore">SCORE:</label>
+                    <output id="lblScore" type="text" >
                 </div>
                 <div id="time">
-                    <p>
-                    <label for="lblTime" style="font-size: 25px;">Time:</label>
-                    <output id="lblTime" type="text" style="font-size: 25px;">
-                    </p>
+                    <label for="lblTime">TIME:</label>
+                    <output id="lblTime" type="text" >
                 </div>
                 <div id="live">
-                    <label for="lblLive" style="font-size: 25px;">Live:</label>
-                    <output id="lblLive" type="text" style="font-size: 25px;">
+                    <label for="lblLive">Live:</label>
+                    <output id="lblLive" type="text" >
                 </div>
                 <p>
                     <label for="up_settingsBoard">Up key:</label>
@@ -298,24 +270,24 @@
                         value="50">
                 </p>
                 <p>
-                    <label for="Ball_5Point_settingsBoard">5 points ball:</label>
-                    <input type="color" id="Ball_5Point_settingsBoard" name="Ball_5Point_settingsBoard" value="#55aecc"
-                        disabled>
+                    <label for="Ball_5Point_settingsBoard">5 points ball remain:</label>
+                    <input type="color" id="Ball_5Point_settingsBoard" name="Ball_5Point_settingsBoard"
+                     value="#55aecc" disabled>
                 </p>
                 <p>
-                    <label for="Ball_15Point_settingsBoard">15 points ball:</label>
+                    <label for="Ball_15Point_settingsBoard">15 points ball remain:</label>
                     <input type="color" id="Ball_15Point_settingsBoard" name="Ball_15Point_settingsBoard"
                         value="#d275d5" disabled>
                 </p>
                 <p>
-                    <label for="Ball_25Point_settingsBoard">25 points ball:</label>
+                    <label for="Ball_25Point_settingsBoard">25 points ball remain:</label>
                     <input type="color" id="Ball_25Point_settingsBoard" name="Ball_25Point_settingsBoard"
                         value="#43e45b" disabled>
                 </p>
                 <p>
-                    <!-- <label>time for the game (measured in seconds):</label> -->
+                    <label>time for the game (measured in seconds):</label>
                     <output type="number" id="gameTimer_settingsBoard" name="gameTimer_settingsBoard" min="60"
-                        value="60" hidden>
+                        value="60">
                 </p>
                 <p>
                     <label>Number of monsters:</label>
@@ -326,138 +298,25 @@
 
             <div id="gameAudio">
                 <audio loop muted id="pacmanSong">
-                    <source src="./resource/audio/PacMan.mp3" type="audio/mp3">Your browser does not support the audio
-                    tag.
-                </audio>
-                <audio muted id="pacmanDeathSong">
-                    <source src="./resource/audio/Pacman-death-sound.mp3" type="audio/mp3">Your browser does not support the audio
-                    tag.
+                    <source src="./resource/audio/PacMan.mp3"  type="audio/mp3">Your browser does not support the audio tag.
                 </audio>
             </div>
 
-            <div>
-                <label id="gameUser"></label>
-            </div>
-
-            <div id="game" >
+            <label id="gameUser"></label>
+            <div id="game">
                
-                <canvas id="canvas" width="600" height="600" style="border:2px solid gray;"></canvas>
-                <img id="imgPlus" src="./resource/css/img/plus.png" hidden>
-                <img id="imgMonster" src="./resource/css/img/20.png" hidden>
-                <img id="imgTime" src="./resource/css/img/time.png" hidden>
-
+                <canvas id="canvas" height="730" width="730"></canvas>
+                <img id="monsters" src="./resource/css/img/20.png">
             </div>
 
-        </div>
-
-        <!-- New Game -->
-        <!-- <div id="newGame">
-            <p>
-                <button type="button" onclick="startNewGame()">New Game</button>
-            </p>
-        </div> -->
-
-        <div id="endGame" >
-
-            <div id="winGame">
-
-                <label class="scoreUser"></label>
-                <label id="winLabel">Winner!!!</label>
-
-                <div class="modal-content" id="modal_win"  tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-body">
-                        <label class="scoreUser"></label>
-                        <p>Winner!!!</p>
-                        <video  width="400" loop autoplay>
-                            <source src="./resource/video/winner.mp4" mute="muted" type="video/mp4">
-                            Your browser does not support HTML5 video.
-                        </video>
-                            <div id="newGame" >
-                                
-                                <button id="submitBtn" type="button" aria-hidden="true" class="submit" data-dismiss="modal"
-                                onclick="restartGame()" >New Game</button>
-                            </div>
-                       
-                    </div>
-                </div>
-                <!-- <video id="winVideo" width="400" loop autoplay>
-                    <source src="./resource/video/1.mp4" mute="muted" type="video/mp4">
-                    Your browser does not support HTML5 video.
-                </video> -->
-            </div>
-
-            <div id="loseGameScore">
-                <!-- <label class="scoreUser"></label> -->
-                <!-- <label id="loseScoreLabel"></label> -->
-
-                <div class="modal-content" id="modal_loseScore"  tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-body">
-                        <label class="scoreUser"></label>
-                        <label id="loseScoreLabel"></label>
-                        <video  width="400" loop autoplay>
-                            <source src="./resource/video/gameOver.mp4" mute="muted" type="video/mp4">
-                            Your browser does not support HTML5 video.
-                        </video>
-                            <div id="newGame" >
-                                
-                                <button id="submitBtn" type="button" aria-hidden="true"class="submit" data-dismiss="modal"
-                                onclick="restartGame()" >New Game</button>
-                            </div>
-                       
-                    </div>
-                </div>
-
-                <!-- <video id="loseVideo" width="400" loop controls autoplay>
-                    <source src="./resource/video/1.mp4" mute="muted" type="video/mp4">
-                    Your browser does not support HTML5 video.
-                </video> -->
-            </div>
-
-            <div id="loseGameGhosts">
-                <!-- <label class="scoreUser"></label>
-                <label id="loseGhostsLabel">Loser!</label> -->
-
-                <div class="modal-content" id="modal_loseGhosts"  tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-body">
-                        <label class="scoreUser"></label>
-                        <p>Loser!</p>
-                        <video  width="400" loop autoplay>
-                            <source src="./resource/video/gameOver.mp4" mute="muted" type="video/mp4">
-                            Your browser does not support HTML5 video.
-                        </video>
-                            <div id="newGame" >
-                                
-                                <button id="submitBtn" type="button" aria-hidden="true" class="submit" data-dismiss="modal"
-                                onclick="restartGame()" >New Game</button>
-                            </div>
-                       
-                    </div>
-                </div>
-                
+            <div class="newGame">
+                <p>
+                    <button type="button" onclick="startNewGame()">New Game</button>
+                </p>
             </div>
         </div>
 
-<!-- Footer Page div -->
-<div class="FooterPage" id="footer">
 
-    <!-- DORON -->
-    <p class="footerInfo" style="float: left;" >Doron: <br></p>
-    <a href="https://www.facebook.com/doron.shamay" class="facebook"><i class="fa fa-facebook" style="float: left;"></i></a>
-    <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=shamai.doron@gmail.com" class="google"><i class="fa fa-google" style="float: left;"></i></a>
-    <a href="#" class="github"><i class="fa fa-github" style="float: left;"></i></a>
-
-
-    <!-- OSCAR -->
-    <a href="#" class="linkedin"><i class="fa fa-linkedin" style="float: right;"></i></a>
-    <a href="#" class="github"><i class="fa fa-github" style="float: right;"></i></a>
-    <a href="" class="google"><i class="fa fa-google" style="float: right;"></i></a>
-    <a href="https://www.facebook.com/osacrepshtein" class="facebook"><i class="fa fa-facebook" style="float: right;"></i></a>
-    <p class="footerInfo" style="float: right;">Oscar: <br></p>
-
-    <p id="footerText">This pacman created by Oscar & Doron</p>
-    
-    
-</div>
 
 
     </div>
@@ -465,7 +324,11 @@
 
 
 
-    
+    <!-- Footer Page div -->
+    <div class="FooterPage" id="footer">
+        <p>This pacman created by Oscar & Doron </p>
+    </div>
+
 
 
 </body>
