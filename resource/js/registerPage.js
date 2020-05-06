@@ -45,7 +45,7 @@ $(document).ready(function(e){
         $('#mainWindow').children().hide()
         $('#logo').show()
         $('#nav').show()
-        $('#login').show()
+        $('#welcome').show()
         $('#footer').show()
     
 
