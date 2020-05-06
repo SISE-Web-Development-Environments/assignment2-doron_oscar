@@ -84,6 +84,8 @@ function resetGame() {
     document.getElementById("pacmanSong").muted = true;
     $("#pacmanDeathSong").get(0).pause();
     document.getElementById("pacmanDeathSong").muted=true;
+    $("#applauseSong").get(0).pause();
+    document.getElementById("applauseSong").muted=true;
 }
 
 function restartGame() {
@@ -531,6 +533,8 @@ function gameOver() {
     if (winGame) {
         $("#modal_win").modal('show');
         $('.scoreUser').text( "You'r score "+ lblScore.value + " !");
+        $("#applauseSong").get(0).play();
+        document.getElementById("applauseSong").muted=false;
         // $('#loseGameGhosts').hide();
         // $('#loseGameScore').hide();				
         // $('#winGame').show();
