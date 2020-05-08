@@ -149,10 +149,9 @@ $(document).ready(function () {
 function Start() {
     console.log(gameMoveKeys[0] + "," + gameMoveKeys[1] + "," + gameMoveKeys[2] + "," + gameMoveKeys[3])
     gameBoard();
-    //pacmanSong  = document.getElementById("pacmanSong").muted=false;
     document.getElementById("pacmanSong").muted = false;
     board = new Array();
-    pac_color = "purple";
+    pac_color = "yellow";
     var cnt = 100; // אפשרות להגדיר אחוזים מסויימים
     let five_point_remain = Math.round(food_remain * 0.60)
     let fifteen_point_remain = Math.round(food_remain * 0.30)
@@ -437,8 +436,6 @@ function UpdatePosition() {
     }
 }
 
-
-
 function caughtFood() {
     set_moving_food = false;
     score = score + 50;
@@ -487,43 +484,11 @@ function gameOver() {
 
 }
 
-function endGame() {
-    //create your shape data in a Path2D object
-    const path = new Path2D()
-    path.rect(250, 350, 200, 100)
-    path.rect(25, 72, 32, 32)
-    path.closePath()
 
-    //draw your shape data to the context
-    context.fillStyle = "#FFFFFF"
-    context.fillStyle = "rgba(225,225,225,0.5)"
-    context.fill(path)
-    context.lineWidth = 2
-    context.strokeStyle = "#000000"
-    context.stroke(path)
-
-    function getXY(canvas, event) { //adjust mouse click to canvas coordinates
-        const rect = canvas.getBoundingClientRect()
-        const y = event.clientY - rect.top
-        const x = event.clientX - rect.left
-        return { x: x, y: y }
-    }
-
-    document.addEventListener("click", function (e) {
-        const XY = getXY(canvas, e)
-        //use the shape data to determine if there is a collision
-        if (context.isPointInPath(path, XY.x, XY.y)) {
-            // Do Something with the click
-            alert("clicked in rectangle")
-        }
-    }, false)
-}
-
-
-function shuffleArray(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = array[i];
+function arrayShuffle(array) {
+    for (let i =  0 ; i < array.length; i++) {
+        let j = Math.floor(Math.random() * (i + 1));
+        let temp = array[i];
         array[i] = array[j];
         array[j] = temp;
     }
@@ -563,7 +528,7 @@ function setMonsters() {
 
 function resetMonsters() {
     let monsterPlace = [1, 2, 3, 4];
-    monsterPlace = shuffleArray(monsterPlace);
+    monsterPlace = arrayShuffle(monsterPlace);
     monsters.forEach(function (monster) {
         board[monster.x][monster.y] = 0;
         let number = monsterPlace.pop();
@@ -614,30 +579,13 @@ function getDistance(x1, y1, x2, y2) {
 function moveMonster(monster) {
     let maxDistance = Infinity;
     let distance;
-    let dir = false;
-    if (monster.x < (canvas_width - 1) && board[monster.x + 1][monster.y] != WALL
-        && board[monster.x + 1][monster.y] != MONSTER) {
-        distance = getDistance(monster.x + 1, monster.y, shape.i, shape.j);
-        if (distance < maxDistance) {
-            dir = RIGHT_DIRECTION;
-            maxDistance = distance;
-        }
-    }
-    //Left
-    if (monster.x > 0 && board[monster.x - 1][monster.y] != WALL
-        && board[monster.x - 1][monster.y] != MONSTER) {
-        distance = getDistance(monster.x - 1, monster.y, shape.i, shape.j);
-        if (distance < maxDistance) {
-            dir = LEFT_DIRECTION;
-            maxDistance = distance;
-        }
-    }
+    let direction = false;
     //Up
     if (monster.y > 0 && board[monster.x][monster.y - 1] != WALL
         && board[monster.x][monster.y - 1] != MONSTER) {
         distance = getDistance(monster.x, monster.y - 1, shape.i, shape.j);
         if (distance < maxDistance) {
-            dir = UP_DIRECTION;
+            direction = UP_DIRECTION;
             maxDistance = distance;
         }
     }
@@ -646,7 +594,25 @@ function moveMonster(monster) {
         && board[monster.x][monster.y + 1] != MONSTER) {
         distance = getDistance(monster.x, monster.y + 1, shape.i, shape.j);
         if (distance < maxDistance) {
-            dir = DOWN_DIRECTION;
+            direction = DOWN_DIRECTION;
+            maxDistance = distance;
+        }
+    }
+
+    if (monster.x < (canvas_width - 1) && board[monster.x + 1][monster.y] != WALL
+        && board[monster.x + 1][monster.y] != MONSTER) {
+        distance = getDistance(monster.x + 1, monster.y, shape.i, shape.j);
+        if (distance < maxDistance) {
+            direction = RIGHT_DIRECTION;
+            maxDistance = distance;
+        }
+    }
+    //Left
+    if (monster.x > 0 && board[monster.x - 1][monster.y] != WALL
+        && board[monster.x - 1][monster.y] != MONSTER) {
+        distance = getDistance(monster.x - 1, monster.y, shape.i, shape.j);
+        if (distance < maxDistance) {
+            direction = LEFT_DIRECTION;
             maxDistance = distance;
         }
     }
@@ -656,13 +622,13 @@ function moveMonster(monster) {
     }
 
     //Move
-    if (dir === UP_DIRECTION) {
+    if (direction === UP_DIRECTION) {
         monster.y -= 1;
-    } else if (dir === DOWN_DIRECTION) {
+    } else if (direction === DOWN_DIRECTION) {
         monster.y += 1;
-    } else if (dir === LEFT_DIRECTION) {
+    } else if (direction === LEFT_DIRECTION) {
         monster.x -= 1;
-    } else if (dir === RIGHT_DIRECTION) {
+    } else if (direction === RIGHT_DIRECTION) {
         monster.x += 1;
     }
 
@@ -684,63 +650,62 @@ function moveMonster(monster) {
 function moveMovingFood() {
     let minDistance = 0 ;
     let distance;
-    let dir = false;
-    // right
-    if ( moving_food.x < (canvas_width - 1) && board[moving_food.x + 1][moving_food.y] != WALL
-        && board[moving_food.x + 1][moving_food.y] != MONSTER && board[moving_food.x + 1][moving_food.y] != PACMAN) {
-        distance = getDistance(moving_food.x + 1, moving_food.y, shape.i, shape.j);
-        if (distance > minDistance) {
-            dir = RIGHT_DIRECTION;
-            minDistance = distance;
-        }
-    }
+    let direction = false;
 
-    //Left
-    // else
-     if (moving_food.x > 0 && board[moving_food.x - 1][moving_food.y] != WALL
-        && board[moving_food.x - 1][moving_food.y] != MONSTER && board[moving_food.x - 1][moving_food.y] != PACMAN) {
-        distance = getDistance(moving_food.x -1, moving_food.y, shape.i, shape.j);
-        if (distance > minDistance) {
-            dir = LEFT_DIRECTION;
-            minDistance = distance;
-        }
-
-
-    }
     //Up
-    // else
-     if (moving_food.y > 0 && board[moving_food.x][moving_food.y - 1] != WALL
+    if (moving_food.y > 0 && board[moving_food.x][moving_food.y - 1] != WALL
         && board[moving_food.x][moving_food.y - 1] != MONSTER && board[moving_food.x][moving_food.y - 1] != PACMAN) {
         distance = getDistance(moving_food.x , moving_food.y-1, shape.i, shape.j);
         if (distance > minDistance) {
-            dir = UP_DIRECTION;
+            direction = UP_DIRECTION;
             minDistance = distance;
         }
 
     }
     //Down
-    // else
      if (moving_food.y < (canvas_height - 1) && board[moving_food.x][moving_food.y + 1] != WALL
         && board[moving_food.x][moving_food.y + 1] != MONSTER && board[moving_food.x][moving_food.y + 1] != PACMAN) {
         distance = getDistance(moving_food.x , moving_food.y+1, shape.i, shape.j);
         if (distance > minDistance) {
-            dir = DOWN_DIRECTION;
+            direction = DOWN_DIRECTION;
             minDistance = distance;
         }
 
     }
     
+    // right
+    if ( moving_food.x < (canvas_width - 1) && board[moving_food.x + 1][moving_food.y] != WALL
+        && board[moving_food.x + 1][moving_food.y] != MONSTER && board[moving_food.x + 1][moving_food.y] != PACMAN) {
+        distance = getDistance(moving_food.x + 1, moving_food.y, shape.i, shape.j);
+        if (distance > minDistance) {
+            direction = RIGHT_DIRECTION;
+            minDistance = distance;
+        }
+    }
+
+    //Left
+     if (moving_food.x > 0 && board[moving_food.x - 1][moving_food.y] != WALL
+        && board[moving_food.x - 1][moving_food.y] != MONSTER && board[moving_food.x - 1][moving_food.y] != PACMAN) {
+        distance = getDistance(moving_food.x -1, moving_food.y, shape.i, shape.j);
+        if (distance > minDistance) {
+            direction = LEFT_DIRECTION;
+            minDistance = distance;
+        }
+
+
+    }
+ 
     if (moving_food.food_place !== null) {
         board[moving_food.x][moving_food.y] = moving_food.food_place;
     }
     //Move
-    if (dir === UP_DIRECTION) {
+    if (direction === UP_DIRECTION) {
         moving_food.y -= 1;
-    } else if (dir === DOWN_DIRECTION) {
+    } else if (direction === DOWN_DIRECTION) {
         moving_food.y += 1;
-    } else if (dir === LEFT_DIRECTION) {
+    } else if (direction === LEFT_DIRECTION) {
         moving_food.x -= 1;
-    } else if (dir === RIGHT_DIRECTION) {
+    } else if (direction === RIGHT_DIRECTION) {
         moving_food.x += 1;
     }
 
