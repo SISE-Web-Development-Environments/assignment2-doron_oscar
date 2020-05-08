@@ -5,11 +5,13 @@ Website address:
 •	https://sise-web-development-environments.github.io/assignment2-doron_oscar/
 
 
+
 Developers:
 
 •	Oscar Epshtein – 206228462
 
 •	Doron Shamai – 312538325
+
 
 
 Added functionality:
