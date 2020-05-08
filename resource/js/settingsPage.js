@@ -136,7 +136,6 @@ function gameControlers(event, id) {
 	else if (id === "left") {
         document.getElementById("left").innerHTML = event.keyCode;
         document.getElementById("left").value = event.key;
-        console.log(" left key" + event.keyCode);
         left_code=event.keyCode;
 
 	}
@@ -177,14 +176,7 @@ function gameControlers(event, id) {
        // let found =false;
         for (var key in keyCodes) {
             //var keyValue = obj[key];
-            
-            console.log("up_code");
-            
-            console.log(up_code);
-            console.log("key")
-            console.log(key);
-            console.log("value")
-            console.log(value);
+        
             if(up_code == key){
                 return true;
                // found = true;

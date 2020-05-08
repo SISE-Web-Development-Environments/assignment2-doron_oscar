@@ -404,7 +404,7 @@ function UpdatePosition() {
     if (interval_counter % 2 === 0) {
         monsters.forEach(monster => moveMonster(monster));
     }
-    if (interval_counter %4 === 0 && set_moving_food) {
+    if (interval_counter % 2 == 0 && set_moving_food) {
         moveMovingFood();
     }
     caughtMonster();
@@ -582,7 +582,7 @@ function moveMonster(monster) {
     let direction = false;
     //Up
     if (monster.y > 0 && board[monster.x][monster.y - 1] != WALL
-        && board[monster.x][monster.y - 1] != MONSTER) {
+        && board[monster.x][monster.y - 1] != MONSTER && board[monster.x][monster.y - 1] != MOVING_FOOD) {
         distance = getDistance(monster.x, monster.y - 1, shape.i, shape.j);
         if (distance < maxDistance) {
             direction = UP_DIRECTION;
@@ -591,7 +591,7 @@ function moveMonster(monster) {
     }
     //Down
     if (monster.y < (canvas_height - 1) && board[monster.x][monster.y + 1] != WALL
-        && board[monster.x][monster.y + 1] != MONSTER) {
+        && board[monster.x][monster.y + 1] != MONSTER  && board[monster.x][monster.y + 1] != MOVING_FOOD) {
         distance = getDistance(monster.x, monster.y + 1, shape.i, shape.j);
         if (distance < maxDistance) {
             direction = DOWN_DIRECTION;
@@ -600,7 +600,7 @@ function moveMonster(monster) {
     }
 
     if (monster.x < (canvas_width - 1) && board[monster.x + 1][monster.y] != WALL
-        && board[monster.x + 1][monster.y] != MONSTER) {
+        && board[monster.x + 1][monster.y] != MONSTER && board[monster.x + 1][monster.y] != MOVING_FOOD) {
         distance = getDistance(monster.x + 1, monster.y, shape.i, shape.j);
         if (distance < maxDistance) {
             direction = RIGHT_DIRECTION;
@@ -609,7 +609,7 @@ function moveMonster(monster) {
     }
     //Left
     if (monster.x > 0 && board[monster.x - 1][monster.y] != WALL
-        && board[monster.x - 1][monster.y] != MONSTER) {
+        && board[monster.x - 1][monster.y] != MONSTER && board[monster.x - 1][monster.y] != MOVING_FOOD) {
         distance = getDistance(monster.x - 1, monster.y, shape.i, shape.j);
         if (distance < maxDistance) {
             direction = LEFT_DIRECTION;
