@@ -370,6 +370,7 @@ function Draw() {
         }
     }
 }
+
 function UpdatePosition() {
     interval_counter++;
     var x = GetKeyPressed();
@@ -403,22 +404,24 @@ function UpdatePosition() {
     if (board[shape.i][shape.j] == TWENTYFIVE_POINT) {
         score += 25;
     }
+    if (set_moving_food && board[shape.i][shape.j] == MOVING_FOOD) {
+        caughtFood();
+    }
     if (interval_counter % 2 === 0) {
         monsters.forEach(monster => moveMonster(monster));
     }
     if (interval_counter % 2 == 0 && set_moving_food) {
         moveMovingFood();
     }
-    caughtMonster();
     if (set_plus && board[shape.i][shape.j] == PLUS) {
         caughtPlus();
     }
     if (set_time && board[shape.i][shape.j] == TIME) {
         caughtTime();
     }
-    if (set_moving_food && board[shape.i][shape.j] == MOVING_FOOD) {
-        caughtFood();
-    }
+  
+    caughtMonster();
+    
     board[shape.i][shape.j] = PACMAN;
     var currentTime = new Date();
     time_elapsed = (currentTime - start_time) / 1000;
