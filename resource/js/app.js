@@ -481,9 +481,10 @@ function gameOver() {
     // lose by time
     } else {
         $("#modal_loseScore").modal('show');
-                $('.scoreUser').text( "You are better than "+ lblScore.value + " points!");
-                $("#pacmanDeathSong").get(0).play();
-                document.getElementById("pacmanDeathSong").muted=false;
+        $('.scoreUser').text( "You'r score "+ lblScore.value );
+        $('#loseScoreLabel').text( "You are better than "+ lblScore.value + " points!");
+        $("#pacmanDeathSong").get(0).play();
+        document.getElementById("pacmanDeathSong").muted=false;
 
     }
     winGame = false;
