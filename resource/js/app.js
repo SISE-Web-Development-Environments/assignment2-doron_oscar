@@ -84,6 +84,8 @@ function resetGame() {
     document.getElementById("pacmanDeathSong").muted = true;
     $("#applauseSong").get(0).pause();
     document.getElementById("applauseSong").muted = true;
+    $("#loseSong").get(0).pause();
+    document.getElementById("loseSong").muted = true;
 }
 
 function restartGame() {
@@ -476,13 +478,16 @@ function gameOver() {
     } else if (loseToMonsters) {
         $("#modal_loseGhosts").modal('show');
         $('.scoreUser').text("You'r score " + lblScore.value);
-        // $("#pacmanDeathSong").get(0).play();
-        // document.getElementById("pacmanDeathSong").muted=false;
+        $("#pacmanDeathSong").get(0).play();
+        document.getElementById("pacmanDeathSong").muted=false;
 
         // lose by time
     } else {
         $("#modal_loseScore").modal('show');
-        $('.scoreUser').text("You are better than " + lblScore.value + " points!");
+        $('.scoreUser').text("You'r score " + lblScore.value);
+        $('#loseScoreLabel').text("You are better than " + lblScore.value + " points!");
+        $("#pacmanDeathSong").get(0).play();
+        document.getElementById("pacmanDeathSong").muted=false;
 
     }
     winGame = false;
@@ -574,8 +579,10 @@ function caughtMonster() {
             shape.i = emptyCell[0];
             shape.j = emptyCell[1];
         }
-        $("#pacmanDeathSong").get(0).play();
-        document.getElementById("pacmanDeathSong").muted = false;
+        // $("#pacmanDeathSong").get(0).play();
+        // document.getElementById("pacmanDeathSong").muted = false;
+        $("#loseSong").get(0).play();
+        document.getElementById("loseSong").muted = false;
     }
 
 }
