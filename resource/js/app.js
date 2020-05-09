@@ -35,7 +35,7 @@ var start_time;
 var time_elapsed;
 var interval;
 var pac_direction = pac_right;
-var init_start = true; // התחלת משחק חדש
+var init_start = true; //new game init
 var interval_counter = 0;
 var set_plus; //init plus food
 var set_time;//init time food
@@ -46,11 +46,11 @@ var winGame = false;
 var audio;
 var loseToMonsters = false;
 
-var food_remain = 90; // כמות כדורים
+var game_food = 90;
 
-var monster_remain = 4; // כמות מפלצות
+var monsters_number = 4;
 
-var game_time = 10; // זמן משחק משתמש
+var game_time = 10;
 
 //Monsters
 let monsters = new Array();
@@ -68,22 +68,22 @@ function resetGame() {
     window.clearInterval(interval);
     interval_counter = 0;
     lives = 5;
-    food_remain = ballsNumber;
+    game_food = ballsNumber;
     game_time = gameTimer;
     start_time = new Date();
     score = 0;
     init_start = true;
     monsters = new Array();
     context = canvas.getContext("2d");
-    monster_remain = monstersNumber;
+    monsters_number = monstersNumber;
 
 
     $("#pacmanSong").get(0).pause();
     document.getElementById("pacmanSong").muted = true;
     $("#pacmanDeathSong").get(0).pause();
-    document.getElementById("pacmanDeathSong").muted=true;
+    document.getElementById("pacmanDeathSong").muted = true;
     $("#applauseSong").get(0).pause();
-    document.getElementById("applauseSong").muted=true;
+    document.getElementById("applauseSong").muted = true;
 }
 
 function restartGame() {
@@ -154,10 +154,10 @@ function Start() {
     document.getElementById("pacmanSong").muted = false;
     board = new Array();
     pac_color = "yellow";
-    var cnt = 100; // אפשרות להגדיר אחוזים מסויימים
-    let five_point_remain = Math.round(food_remain * 0.60)
-    let fifteen_point_remain = Math.round(food_remain * 0.30)
-    let twnteeyfive_point_remain = Math.round(food_remain * 0.15)
+    var cnt = 100;
+    let five_point_remain = Math.round(game_food * 0.60)
+    let fifteen_point_remain = Math.round(game_food * 0.30)
+    let twnteeyfive_point_remain = Math.round(game_food * 0.15)
     set_plus = true;
     set_time = true;
     setBoard(board);
@@ -165,8 +165,8 @@ function Start() {
     setPlusLive();
     setTimeAdder();
     setFood(board, five_point_remain, fifteen_point_remain, twnteeyfive_point_remain);
-    if (init_start == true) { // לטיפול במשחק חדש
-        start_time = new Date(); // כמה זמן נשאר במשחק
+    if (init_start == true) {
+        start_time = new Date();
         setMonsters();
         keysDown = {};
         addEventListener(
@@ -373,6 +373,7 @@ function Draw() {
 
 function UpdatePosition() {
     interval_counter++;
+    // caughtMonster();
     var x = GetKeyPressed();
     board[shape.i][shape.j] = BLANK;
     if (x == 1) {
@@ -419,9 +420,9 @@ function UpdatePosition() {
     if (set_time && board[shape.i][shape.j] == TIME) {
         caughtTime();
     }
-  
+
     caughtMonster();
-    
+
     board[shape.i][shape.j] = PACMAN;
     var currentTime = new Date();
     time_elapsed = (currentTime - start_time) / 1000;
@@ -467,24 +468,21 @@ function gameOver() {
     $('#footer').show();
     if (winGame) {
         $("#modal_win").modal('show');
-        $('.scoreUser').text( "You'r score "+ lblScore.value + " !");
+        $('.scoreUser').text("You'r score " + lblScore.value + " !");
         $("#applauseSong").get(0).play();
-        document.getElementById("applauseSong").muted=false;
+        document.getElementById("applauseSong").muted = false;
 
-    //Lose by lives
+        //Lose by lives
     } else if (loseToMonsters) {
         $("#modal_loseGhosts").modal('show');
-        $('.scoreUser').text( "You'r score "+ lblScore.value );
-        $("#pacmanDeathSong").get(0).play();
-        document.getElementById("pacmanDeathSong").muted=false;
-      
-    // lose by time
+        $('.scoreUser').text("You'r score " + lblScore.value);
+        // $("#pacmanDeathSong").get(0).play();
+        // document.getElementById("pacmanDeathSong").muted=false;
+
+        // lose by time
     } else {
         $("#modal_loseScore").modal('show');
-        $('.scoreUser').text( "You'r score "+ lblScore.value );
-        $('#loseScoreLabel').text( "You are better than "+ lblScore.value + " points!");
-        $("#pacmanDeathSong").get(0).play();
-        document.getElementById("pacmanDeathSong").muted=false;
+        $('.scoreUser').text("You are better than " + lblScore.value + " points!");
 
     }
     winGame = false;
@@ -494,7 +492,7 @@ function gameOver() {
 
 
 function arrayShuffle(array) {
-    for (let i =  0 ; i < array.length; i++) {
+    for (let i = 0; i < array.length; i++) {
         let j = Math.floor(Math.random() * (i + 1));
         let temp = array[i];
         array[i] = array[j];
@@ -507,12 +505,12 @@ function arrayShuffle(array) {
 function Monster(x, y) {
     this.x = x;
     this.y = y;
-    this.food_place;
+    this.last;
 }
 
 
 function setMonsters() {
-    let num_monsters = monster_remain;
+    let num_monsters = monsters_number;
     let monster;
     board[0][0] = MONSTER;
     monster = new Monster(0, 0);
@@ -576,7 +574,10 @@ function caughtMonster() {
             shape.i = emptyCell[0];
             shape.j = emptyCell[1];
         }
+        $("#pacmanDeathSong").get(0).play();
+        document.getElementById("pacmanDeathSong").muted = false;
     }
+
 }
 
 function getDistance(x1, y1, x2, y2) {
@@ -599,7 +600,7 @@ function moveMonster(monster) {
     }
     //Down
     if (monster.y < (canvas_height - 1) && board[monster.x][monster.y + 1] != WALL
-        && board[monster.x][monster.y + 1] != MONSTER  && board[monster.x][monster.y + 1] != MOVING_FOOD) {
+        && board[monster.x][monster.y + 1] != MONSTER && board[monster.x][monster.y + 1] != MOVING_FOOD) {
         distance = getDistance(monster.x, monster.y + 1, shape.i, shape.j);
         if (distance < maxDistance) {
             direction = DOWN_DIRECTION;
@@ -654,16 +655,28 @@ function moveMonster(monster) {
     board[monster.x][monster.y] = MONSTER;
 }
 
+function MovingFood(x, y) {
+    this.x = x;
+    this.y = y;
+    this.last;
+}
+
+function setMovingFood() {
+    set_moving_food = true;
+    let emptyCell = findRandomEmptyCell(board);
+    board[emptyCell[0]][emptyCell[1]] = MOVING_FOOD;
+    moving_food = new MovingFood(emptyCell[0], emptyCell[1]);
+}
 
 function moveMovingFood() {
-    let minDistance = 0 ;
+    let minDistance = 0;
     let distance;
     let direction = false;
 
     //Up
     if (moving_food.y > 0 && board[moving_food.x][moving_food.y - 1] != WALL
         && board[moving_food.x][moving_food.y - 1] != MONSTER && board[moving_food.x][moving_food.y - 1] != PACMAN) {
-        distance = getDistance(moving_food.x , moving_food.y-1, shape.i, shape.j);
+        distance = getDistance(moving_food.x, moving_food.y - 1, shape.i, shape.j);
         if (distance > minDistance) {
             direction = UP_DIRECTION;
             minDistance = distance;
@@ -671,18 +684,18 @@ function moveMovingFood() {
 
     }
     //Down
-     if (moving_food.y < (canvas_height - 1) && board[moving_food.x][moving_food.y + 1] != WALL
+    if (moving_food.y < (canvas_height - 1) && board[moving_food.x][moving_food.y + 1] != WALL
         && board[moving_food.x][moving_food.y + 1] != MONSTER && board[moving_food.x][moving_food.y + 1] != PACMAN) {
-        distance = getDistance(moving_food.x , moving_food.y+1, shape.i, shape.j);
+        distance = getDistance(moving_food.x, moving_food.y + 1, shape.i, shape.j);
         if (distance > minDistance) {
             direction = DOWN_DIRECTION;
             minDistance = distance;
         }
 
     }
-    
+
     // right
-    if ( moving_food.x < (canvas_width - 1) && board[moving_food.x + 1][moving_food.y] != WALL
+    if (moving_food.x < (canvas_width - 1) && board[moving_food.x + 1][moving_food.y] != WALL
         && board[moving_food.x + 1][moving_food.y] != MONSTER && board[moving_food.x + 1][moving_food.y] != PACMAN) {
         distance = getDistance(moving_food.x + 1, moving_food.y, shape.i, shape.j);
         if (distance > minDistance) {
@@ -692,9 +705,9 @@ function moveMovingFood() {
     }
 
     //Left
-     if (moving_food.x > 0 && board[moving_food.x - 1][moving_food.y] != WALL
+    if (moving_food.x > 0 && board[moving_food.x - 1][moving_food.y] != WALL
         && board[moving_food.x - 1][moving_food.y] != MONSTER && board[moving_food.x - 1][moving_food.y] != PACMAN) {
-        distance = getDistance(moving_food.x -1, moving_food.y, shape.i, shape.j);
+        distance = getDistance(moving_food.x - 1, moving_food.y, shape.i, shape.j);
         if (distance > minDistance) {
             direction = LEFT_DIRECTION;
             minDistance = distance;
@@ -702,7 +715,7 @@ function moveMovingFood() {
 
 
     }
- 
+
     if (moving_food.food_place !== null) {
         board[moving_food.x][moving_food.y] = moving_food.food_place;
     }
@@ -717,7 +730,7 @@ function moveMovingFood() {
         moving_food.x += 1;
     }
 
-    if (   board[moving_food.x][moving_food.y] == FIVE_POINT
+    if (board[moving_food.x][moving_food.y] == FIVE_POINT
         || board[moving_food.x][moving_food.y] == FIFTEEN_POINT
         || board[moving_food.x][moving_food.y] == TWENTYFIVE_POINT
         || board[moving_food.x][moving_food.y] == PLUS
@@ -730,16 +743,3 @@ function moveMovingFood() {
     board[moving_food.x][moving_food.y] = MOVING_FOOD;
 }
 
-function MovingFood(x, y) {
-    this.x = x;
-    this.y = y;
-    this.food_place;
-}
-
-
-function setMovingFood() {
-    set_moving_food = true;
-    let emptyCell = findRandomEmptyCell(board);
-    board[emptyCell[0]][emptyCell[1]] = MOVING_FOOD;
-    moving_food = new MovingFood(emptyCell[0], emptyCell[1]);
-}
